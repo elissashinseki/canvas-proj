@@ -76,6 +76,17 @@ namespace CanvasPractice
            //
         }
 
+        private void saveButton_Click(object sender, RoutedEventArgs e)
+        {
+            String newFileName = "newDrawing";
+            var fs = new FileStream(newFileName, FileMode.Create);
+        }
+
+        private void loadButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         // private variables
         private InkDrawingAttributes _inkDrawingAttributes = new InkDrawingAttributes();
     }
