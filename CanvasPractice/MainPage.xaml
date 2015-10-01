@@ -1,0 +1,21 @@
+﻿<Page
+    x:Class="CanvasPractice.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CanvasPractice"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <InkCanvas x:Name="canvas" Margin="-10,0,10,0" />
+        <Button x:Name="redButton" Content="Red" HorizontalAlignment="Left" Margin="46,39,0,0" VerticalAlignment="Top" Click="redButton_Click"/>
+        <Button x:Name="orangeButton" Content="Orange" HorizontalAlignment="Left" Margin="111,39,0,0" VerticalAlignment="Top" Click="orangeButton_Click"/>
+        <Button x:Name="purpleButton" Content="Purple" HorizontalAlignment="Left" Margin="201,76,0,0" VerticalAlignment="Top" Click="purpleButton_Click"/>
+        <Button x:Name="greenButton" Content="Green" HorizontalAlignment="Left" Margin="46,76,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.062,0.521" Click="greenButton_Click"/>
+        <Button x:Name="blueButton" Content="Blue" HorizontalAlignment="Left" Margin="131,76,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.891,0.625" Click="blueButton_Click"/>
+        <Button x:Name="yellowButton" Content="Yellow" HorizontalAlignment="Left" Margin="201,39,0,0" VerticalAlignment="Top" Click="yellowButton_Click"/>
+        <Button x:Name="blackButton" Content="Black" HorizontalAlignment="Left" Margin="51,113,0,0" VerticalAlignment="Top" Click="blackButton_Click"/>
+        <Button x:Name="clearButton" Content="Clear" HorizontalAlignment="Left" Margin="338,39,0,0" VerticalAlignment="Top" RenderTransformOrigin="-4.954,-2.583" Click="clearButton_Click"/>
+    </Grid>
+</Page>
