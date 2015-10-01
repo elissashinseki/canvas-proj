@@ -73,7 +73,7 @@ namespace CanvasPractice
 
         private void clearButton_Click(object sender, RoutedEventArgs e)
         {
-
+           //
         }
 
         // private variables
