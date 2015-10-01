@@ -16,6 +16,6 @@
         <Button x:Name="blueButton" Content="Blue" HorizontalAlignment="Left" Margin="131,76,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.891,0.625" Click="blueButton_Click"/>
         <Button x:Name="yellowButton" Content="Yellow" HorizontalAlignment="Left" Margin="201,39,0,0" VerticalAlignment="Top" Click="yellowButton_Click"/>
         <Button x:Name="blackButton" Content="Black" HorizontalAlignment="Left" Margin="51,113,0,0" VerticalAlignment="Top" Click="blackButton_Click"/>
-        <Button x:Name="clearButton" Content="Clear" HorizontalAlignment="Left" Margin="974,76,0,0" VerticalAlignment="Top" RenderTransformOrigin="-4.954,-2.583" Click="clearButton_Click"/>
+        <Button x:Name="clearButton" Content="Clear" HorizontalAlignment="Left" Margin="338,39,0,0" VerticalAlignment="Top" RenderTransformOrigin="-4.954,-2.583" Click="clearButton_Click"/>
     </Grid>
 </Page>
