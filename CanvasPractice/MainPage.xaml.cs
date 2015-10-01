@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Windows;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -27,6 +28,7 @@ namespace CanvasPractice
         {
             this.InitializeComponent();
             inkCanvas.InkPresenter.InputDeviceTypes = Windows.UI.Core.CoreInputDeviceTypes.Mouse | Windows.UI.Core.CoreInputDeviceTypes.Pen;
+           
         }
 
         private void redButton_Click(object sender, RoutedEventArgs e)
@@ -73,9 +75,11 @@ namespace CanvasPractice
 
         private void clearButton_Click(object sender, RoutedEventArgs e)
         {
-           //
+            //StrokeCollection newThing = new StrokeCollection();
         }
 
+        //http://stackoverflow.com/questions/6246009/inkcanvas-load-save-operations
+        //https://msdn.microsoft.com/en-us/library/system.windows.controls.inkcanvas(v=vs.110).aspx
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
             String newFileName = "newDrawing";
