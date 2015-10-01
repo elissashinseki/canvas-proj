@@ -76,8 +76,11 @@ namespace CanvasPractice
 
         }
 
+
         // private variables
         private InkDrawingAttributes _inkDrawingAttributes = new InkDrawingAttributes();
+        private Elissa Hi = new Elissa();
     }
 }
+
 
