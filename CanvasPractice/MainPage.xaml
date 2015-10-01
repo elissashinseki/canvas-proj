@@ -8,14 +8,30 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <InkCanvas x:Name="canvas" Margin="-10,0,10,0" />
-        <Button x:Name="redButton" Content="Red" HorizontalAlignment="Left" Margin="46,39,0,0" VerticalAlignment="Top" Click="redButton_Click"/>
-        <Button x:Name="orangeButton" Content="Orange" HorizontalAlignment="Left" Margin="111,39,0,0" VerticalAlignment="Top" Click="orangeButton_Click"/>
-        <Button x:Name="purpleButton" Content="Purple" HorizontalAlignment="Left" Margin="201,76,0,0" VerticalAlignment="Top" Click="purpleButton_Click"/>
-        <Button x:Name="greenButton" Content="Green" HorizontalAlignment="Left" Margin="46,76,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.062,0.521" Click="greenButton_Click"/>
-        <Button x:Name="blueButton" Content="Blue" HorizontalAlignment="Left" Margin="131,76,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.891,0.625" Click="blueButton_Click"/>
-        <Button x:Name="yellowButton" Content="Yellow" HorizontalAlignment="Left" Margin="201,39,0,0" VerticalAlignment="Top" Click="yellowButton_Click"/>
-        <Button x:Name="blackButton" Content="Black" HorizontalAlignment="Left" Margin="51,113,0,0" VerticalAlignment="Top" Click="blackButton_Click"/>
-        <Button x:Name="clearButton" Content="Clear" HorizontalAlignment="Left" Margin="338,39,0,0" VerticalAlignment="Top" RenderTransformOrigin="-4.954,-2.583" Click="clearButton_Click"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="18*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="11*"/>
+            <ColumnDefinition Width="1"/>
+
+        </Grid.ColumnDefinitions>
+ 
+        <WebView HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="http://www.theverge.com" Grid.Row="1" Grid.ColumnSpan="2"/>
+        <Border BorderBrush="DarkBlue" BorderThickness="1" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="1" Grid.ColumnSpan="1" Grid.RowSpan="1"/>
+        <TextBox x:Name="searchBox" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="URL" VerticalAlignment="Stretch" Grid.ColumnSpan="1" Grid.Row="0" Grid.Column="0" Opacity="0.8" />
+        <Button x:Name="button" Content="Go" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Grid.ColumnSpan="1" />
+        <InkCanvas x:Name="inkCanvas" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.RowSpan="1"/> <!--BLARG-->
+        <Button x:Name="redButton" Content="Red" HorizontalAlignment="Right"  Margin="0,0,0,0" VerticalAlignment="Center" Click="redButton_Click" Grid.Column="2" Width="80" Height="50"/>
+        <Button x:Name="orangeButton" Content="Orange" HorizontalAlignment="right"  Margin="0,0,80,0" VerticalAlignment="Center" Click="orangeButton_Click" Grid.Column="2" Height="50" Width="80"/>
+        <Button x:Name="purpleButton" Content="Purple" HorizontalAlignment="Right"  Margin="0,0,160,0" VerticalAlignment="Center" Click="purpleButton_Click" Grid.Column="2" Height="50" Width="80"/>
+        <Button x:Name="greenButton" Content="Green" HorizontalAlignment="Right" Margin="0,0,240,0"  VerticalAlignment="Center" RenderTransformOrigin="0.062,0.521" Click="greenButton_Click" Grid.Column="2" Height="50" Width="80"/>
+        <Button x:Name="blueButton" Content="Blue" HorizontalAlignment="Right"   Margin="0,0,320,0" VerticalAlignment="Center" RenderTransformOrigin="1.891,0.625" Click="blueButton_Click" Grid.Column="2" Height="50" Width="80"/>
+        <Button x:Name="yellowButton" Content="Yellow" HorizontalAlignment="Right"  Margin="0,0,400,0" VerticalAlignment="Center" Click="yellowButton_Click" Grid.Column="2" Height="50" Width="80"/>
+        <Button x:Name="blackButton" Content="Black" HorizontalAlignment="Right"  Margin="0,0,480,0" VerticalAlignment="Center" Click="blackButton_Click" Grid.Column="2" Height="50" Width="80"/>
+        <Button x:Name="clearButton" Content="Clear" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="-4.954,-2.583" Click="clearButton_Click" Grid.Column="2" Height="50" Width="80"/>
     </Grid>
 </Page>

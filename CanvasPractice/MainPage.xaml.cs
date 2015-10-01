@@ -26,49 +26,49 @@ namespace CanvasPractice
         public MainPage()
         {
             this.InitializeComponent();
-            canvas.InkPresenter.InputDeviceTypes = Windows.UI.Core.CoreInputDeviceTypes.Mouse | Windows.UI.Core.CoreInputDeviceTypes.Pen;
+            inkCanvas.InkPresenter.InputDeviceTypes = Windows.UI.Core.CoreInputDeviceTypes.Mouse | Windows.UI.Core.CoreInputDeviceTypes.Pen;
         }
 
         private void redButton_Click(object sender, RoutedEventArgs e)
         {
             _inkDrawingAttributes.Color = Windows.UI.Colors.Red;
-            canvas.InkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
+            inkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
         }
 
         private void orangeButton_Click(object sender, RoutedEventArgs e)
         {
             _inkDrawingAttributes.Color = Windows.UI.Colors.Orange;
-            canvas.InkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
+            inkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
         }
 
         private void yellowButton_Click(object sender, RoutedEventArgs e)
         {
             _inkDrawingAttributes.Color = Windows.UI.Colors.Yellow;
-            canvas.InkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
+            inkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
         }
 
         private void greenButton_Click(object sender, RoutedEventArgs e)
         {
             _inkDrawingAttributes.Color = Windows.UI.Colors.Green;
-            canvas.InkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
+            inkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
         }
 
         private void blueButton_Click(object sender, RoutedEventArgs e)
         {
             _inkDrawingAttributes.Color = Windows.UI.Colors.Blue;
-            canvas.InkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
+            inkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
         }
 
         private void purpleButton_Click(object sender, RoutedEventArgs e)
         {
             _inkDrawingAttributes.Color = Windows.UI.Colors.Purple;
-            canvas.InkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
+            inkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
         }
 
         private void blackButton_Click(object sender, RoutedEventArgs e)
         {
             _inkDrawingAttributes.Color = Windows.UI.Colors.Black;
-            canvas.InkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
+            inkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
         }
 
         private void clearButton_Click(object sender, RoutedEventArgs e)
