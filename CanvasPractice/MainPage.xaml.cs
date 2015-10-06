@@ -93,6 +93,7 @@ namespace CanvasPractice
 
         // private variables
         private InkDrawingAttributes _inkDrawingAttributes = new InkDrawingAttributes();
+
     }
 }
 
