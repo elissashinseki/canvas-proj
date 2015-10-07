@@ -19,7 +19,7 @@
             <ColumnDefinition Width="1"/>
 
         </Grid.ColumnDefinitions>
- 
+
         <WebView HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="http://www.theverge.com" Grid.Row="1" Grid.ColumnSpan="2"/>
         <Border BorderBrush="DarkBlue" BorderThickness="1" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="1" Grid.ColumnSpan="1" Grid.RowSpan="1"/>
         <TextBox x:Name="searchBox" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="URL" VerticalAlignment="Stretch" Grid.ColumnSpan="1" Grid.Row="0" Grid.Column="0" Opacity="0.8" />
