@@ -78,6 +78,24 @@ namespace CanvasPractice
             //StrokeCollection newThing = new StrokeCollection();
         }
 
+        private void maxthickButton_Click(object sender, RoutedEventArgs e)
+        {
+            _inkDrawingAttributes.Color = Windows.UI.Colors.Black;
+            inkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
+        }
+
+        private void mediumthickButton_Click(object sender, RoutedEventArgs e)
+        {
+            _inkDrawingAttributes.Color = Windows.UI.Colors.Black;
+            inkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
+        }
+
+        private void normalthickButton_Click(object sender, RoutedEventArgs e)
+        {
+            _inkDrawingAttributes.Color = Windows.UI.Colors.Black;
+            inkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
+        }
+
         //http://stackoverflow.com/questions/6246009/inkcanvas-load-save-operations
         //https://msdn.microsoft.com/en-us/library/system.windows.controls.inkcanvas(v=vs.110).aspx
         private void saveButton_Click(object sender, RoutedEventArgs e)
@@ -93,6 +111,7 @@ namespace CanvasPractice
 
         // private variables
         private InkDrawingAttributes _inkDrawingAttributes = new InkDrawingAttributes();
+
     }
 }
 
