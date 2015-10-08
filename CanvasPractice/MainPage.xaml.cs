@@ -57,7 +57,7 @@ namespace CanvasPractice
 
         private void blueButton_Click(object sender, RoutedEventArgs e)
         {
-            _inkDrawingAttributes.Color = Windows.UI.Colors.Blue;
+            _inkDrawingAttributes.Color = Windows.UI.Colors.Azure;
             inkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
         }
 
