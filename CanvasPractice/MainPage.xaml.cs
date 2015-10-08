@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Popups;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -108,15 +109,56 @@ namespace CanvasPractice
 
         //http://stackoverflow.com/questions/6246009/inkcanvas-load-save-operations
         //https://msdn.microsoft.com/en-us/library/system.windows.controls.inkcanvas(v=vs.110).aspx
+
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
-            String newFileName = "newDrawing";
-            var fs = new FileStream(newFileName, FileMode.Create);
+           // String newFileName = "newDrawing";
+           // var fs = new FileStream(newFileName, FileMode.Create);
         }
 
         private void loadButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+
+
+        public void update_size(object sender, RoutedEventArgs e)
+        {
+            MainPage page = (MainPage)sender;
+
+            if (page.ActualWidth < 800)
+            {
+                page.webview.Visibility = Visibility.Collapsed;
+                page.searchBox.Visibility = Visibility.Collapsed;
+                page.goButton.Visibility = Visibility.Collapsed;
+
+                page.inkCanvas.SetValue(Grid.ColumnProperty, 0);
+                page.inkCanvas.SetValue(Grid.ColumnSpanProperty, 3);
+
+                page.canvasBorder.SetValue(Grid.ColumnProperty, 0);
+                page.canvasBorder.SetValue(Grid.ColumnSpanProperty, 3);
+
+                page.commandBar.SetValue(Grid.ColumnProperty, 0);
+                page.canvasBorder.SetValue(Grid.ColumnSpanProperty, 3);
+
+            }
+
+            else
+            {
+                page.webview.Visibility = Visibility.Visible;
+                page.searchBox.Visibility = Visibility.Visible;
+                page.goButton.Visibility = Visibility.Visible;
+
+                page.inkCanvas.SetValue(Grid.ColumnProperty, 2);
+                page.inkCanvas.SetValue(Grid.ColumnSpanProperty, 1);
+
+                page.canvasBorder.SetValue(Grid.ColumnProperty, 2);
+                page.canvasBorder.SetValue(Grid.ColumnSpanProperty, 1);
+
+                page.commandBar.SetValue(Grid.ColumnProperty, 2);
+                page.canvasBorder.SetValue(Grid.ColumnSpanProperty, 1);
+            }
         }
 
         // private variables
