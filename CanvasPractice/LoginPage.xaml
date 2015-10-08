@@ -24,7 +24,7 @@
             </ContentControl>
         </GridViewHeaderItem>
         <StackPanel Name = "mastPanel" Margin="538,374,10,10">
-            <TextBlock Text="Invalid user name or password." ContextMenuOpening="hideTextButton_click" />
+            <TextBlock Name="test" />
             <TextBlock Text ="User Name: "/>
             <StackPanel Name ="userInputPanel" Orientation="Horizontal" Margin="0,20,0,20">
                 <TextBox Name="userNameInput" Width="300" HorizontalContentAlignment="Left" />

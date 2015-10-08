@@ -23,26 +23,15 @@ namespace CanvasPractice
     public sealed partial class LoginPage : Page
     {
         //private attributes
-        private Dictionary<string, string> _userInfor = new Dictionary<string, string>(); // stores the user infor key -> <username, addressre> to <password>
-        private string _userName = "";
-        private string _passWord = "";
+        private Dictionary<string, string> _userInfor; // stores the user infor key -> <username, addressre> to <password>
+        private string _userName;
+        private string _passWord;
 
         // initializing the page
         public LoginPage()
         {
             this.InitializeComponent();
-        }
-
-        //userName
-        private void enterBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            _userName = e.ToString();
-        }
-
-        //password
-        private void passWordText_SelectionChanged(object sender, TextChangedEventArgs e)
-        {
-            _passWord = e.ToString();
+            _userInfor =  new Dictionary<string, string>();
         }
 
         //the sign up page will allow user to navigate to the sigh up page
@@ -56,7 +45,11 @@ namespace CanvasPractice
         {
             Boolean canLogin = false;
 
-           if(  _userInfor != null && _userInfor.ContainsKey(_userName))//check if this is a valid user name, display stuff
+            _userName = userNameInput.Text;
+            _passWord = passWordInput.Password;
+            test.Text = _userName + _passWord + "ref";
+
+            if (  _userInfor != null && _userName != null && _userInfor.ContainsKey(_userName))//check if this is a valid user name, display stuff
             {
                 //check for password
                 if(_userInfor.TryGetValue(_userName, out _passWord))
@@ -71,15 +64,10 @@ namespace CanvasPractice
             }
            else
             {
-                //display the username or password is wrong   
+                //display the username or password is wrong  
+                //test.Text = "Invalid user name or password"; 
                               
             }     
-        }
-      
-        
-        private void hideTextButton_click(object sender, ContextMenuEventArgs e)
-        {
-
         }
 
         //fetch the password and username function calls
@@ -108,6 +96,21 @@ namespace CanvasPractice
         public void setUserInfor(Dictionary<string,string> info)
         {
             _userInfor = info;
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            var dataPasser = e.Parameter as passData;
+
+            if(dataPasser != null)
+            {
+                _userInfor.Add(dataPasser.username, dataPasser.password);
+            }
+            else
+            {
+            }
+            
+
         }
     }
 }

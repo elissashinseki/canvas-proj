@@ -22,16 +22,9 @@ namespace CanvasPractice
     /// </summary>
     public sealed partial class SignUpPage : Page
     {
-        private LoginPage _loginPage;
-        private Dictionary<string, string> _userInfor;
-        private string _userName;
-        private string _passWord;
-
         public SignUpPage()
         {
             this.InitializeComponent();
-            _loginPage = new LoginPage();
-            _userInfor = new Dictionary<string, string>();
         }
 
         private void backButton_Click(object sender, RoutedEventArgs e)
@@ -41,29 +34,8 @@ namespace CanvasPractice
 
         private void create_Click(object sender, RoutedEventArgs e)
         {
-            _userInfor.Add(_userName, _passWord);
-            _loginPage.setUserInfor(_userInfor);
-        }
-
-        private void phone_entry(TextBox sender, TextChangedEventArgs args)
-        {
-
-        }
-
-        private void email_entry(TextBox sender, TextChangedEventArgs args)
-        {
-
-        }
-
-        private void password_entry(object sender, TextChangedEventArgs e)
-        {
-            _passWord = e.ToString();
-
-        }
-
-        private void userName_entry(TextBox sender, TextChangedEventArgs args)
-        {
-            _userName = args.ToString();
+            this.Frame.Navigate(typeof(LoginPage), new passData
+            { username = userNameInput.Text, password = passWordInput.Password });
         }
 
  
