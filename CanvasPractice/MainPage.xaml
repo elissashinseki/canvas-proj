@@ -60,11 +60,10 @@
             </AppBarButton>
             
             <AppBarButton x:Name="thickflyout" Label="Stroke">
-               
                 <AppBarButton.Icon>
                     <BitmapIcon UriSource="Assets/Stroke Thickness Broken.png"/>
                 </AppBarButton.Icon>
-                
+
                 <Button.Flyout>
                     <MenuFlyout>
                         <MenuFlyoutItem Background="Gray" Text="Thickest" Foreground="White" Tapped="maxthickButton_Click"/>
