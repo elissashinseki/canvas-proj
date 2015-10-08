@@ -9,15 +9,22 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <GridViewHeaderItem>
-            <StackPanel Name="topPanel" Margin="10,40,10,40">
-                <TextBlock Name="pageTitle" Text="Welcome! I dare you not to log-in nor sign-up." FontSize="33.333" Margin="319,0,-279.346,0" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
-                    <TextBlock.RenderTransform>
-                        <CompositeTransform Rotation="-0.045"/>
-                    </TextBlock.RenderTransform>
-                </TextBlock>
-            </StackPanel>
+            <ContentControl>
+                <ContentControl.Template>
+                    <ControlTemplate>
+                        <StackPanel Name="topPanel" Margin="10,40,10,40">
+                            <TextBlock Name="pageTitle" Text="Welcome! I dare you not to log-in nor sign-up." FontSize="33.333" Margin="319,0,-279.346,0" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
+                                <TextBlock.RenderTransform>
+                                    <CompositeTransform Rotation="-0.045"/>
+                                </TextBlock.RenderTransform>
+                            </TextBlock>
+                        </StackPanel>
+                    </ControlTemplate>
+                </ContentControl.Template>
+            </ContentControl>
         </GridViewHeaderItem>
         <StackPanel Name = "mastPanel" Margin="538,374,10,10">
+            <TextBlock Text="Invalid user name or password." ContextMenuOpening="hideTextButton_click" />
             <TextBlock Text ="User Name: "/>
             <StackPanel Name ="userInputPanel" Orientation="Horizontal" Margin="0,20,0,20">
                 <TextBox Name="userNameInput" Width="300" HorizontalContentAlignment="Left" />

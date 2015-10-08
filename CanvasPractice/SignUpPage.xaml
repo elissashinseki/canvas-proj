@@ -8,6 +8,44 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <GridViewHeaderItem>
+            <TextBlock Text="Please fill in the following information." HorizontalAlignment="Center"/>
+        </GridViewHeaderItem>
+
+        <StackPanel Name="MastStackPanel" Margin="563,424,10,40">
+            <TextBlock Name="userName" Text="Enter desired user name: " />
+            <StackPanel Name="userNamePanel" Margin="10,20,10,20">
+                <TextBox Name="userNameInput" Width="300" HorizontalAlignment="Left" />
+            </StackPanel>
+        </StackPanel>
+
+
+        <StackPanel Name="passwordStackPanel" Margin="563,547,10,40">
+            <TextBlock Name="passWord" Text="Enter desired user password: " />
+            <StackPanel Name="passWordpanel" Margin="10,20,10,20">
+                <PasswordBox Name="passWordInput" Width="300" HorizontalAlignment="Left"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Name="emailStackPanel" Margin="563,670,10,40">
+            <TextBlock Name="email" Text="Enter desired user email: " />
+            <StackPanel Name="emailpanel" Margin="10,20,10,20">
+                <TextBox Name="emailInput" Width="300" HorizontalAlignment="Left"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Name="phoneStackPanel" Margin="563,798,10,40">
+            <TextBlock Name="phone" Text="Enter desired user phone: " />
+            <StackPanel Name="phonePanel" Margin="10,20,10,20">
+                <TextBox Name="phoneInput" Width="300" HorizontalAlignment="Left"  />
+            </StackPanel>
+
+            <StackPanel Name="buttonsPanel" Margin="40,0,40,0">
+                <Button Name="create" HorizontalAlignment="Left" Content="Create" Click="create_Click" />
+                <Button Name="backButton" Content="Cancel" Click="backButton_Click"/>
+             </StackPanel>
+        </StackPanel>
 
     </Grid>
 </Page>
+
