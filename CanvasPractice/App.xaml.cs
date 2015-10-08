@@ -78,7 +78,7 @@ namespace CanvasPractice
                 // parameter
 
                 //rootFrame.Navigate(typeof(LoginPage), e.Arguments);
-                rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                rootFrame.Navigate(typeof(LoginPage), e.Arguments);
             }
             // Ensure the current window is active
             Window.Current.Activate();
