@@ -29,7 +29,7 @@
         <Button x:Name="button" Content="go" BorderThickness="2" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Grid.ColumnSpan="1" Margin="0" MinWidth="65" MinHeight="50" />
         <InkCanvas x:Name="inkCanvas" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.RowSpan="2" Margin="0.167,0,0,0"/>
 
-        
+
         <!--Command Bar-->
         <CommandBar  Grid.Row="2" Grid.Column="2" VerticalAlignment="Bottom" Margin="0.167,0,0,0">
             <CommandBar.Content>
@@ -48,7 +48,7 @@
                     </MenuFlyout>
                 </Button.Flyout>
             </AppBarButton>
-            
+
             <AppBarButton x:Name="thickflyout" Label="Stroke Thickness" Icon="Up">
                 <Button.Flyout>
                     <MenuFlyout>
@@ -58,7 +58,10 @@
                     </MenuFlyout>
                 </Button.Flyout>
             </AppBarButton>
-         </CommandBar>
+        </CommandBar>
+        <Button x:Name="drawButton" Content="Draw" Grid.Column="2" HorizontalAlignment="Left" Margin="10,201,0,0" Grid.Row="1" VerticalAlignment="Top" Click="drawButton_Click"/>
+        <Button x:Name="eraseButton" Content="Erase" Grid.Column="2" HorizontalAlignment="Left" Margin="10,238,0,0" Grid.Row="1" VerticalAlignment="Top" Click="eraseButton_Click"/>
+        <Button x:Name="clearButton" Content="Clear" Grid.Column="2" HorizontalAlignment="Right" Margin="0,164,104.667,0" Grid.Row="1" VerticalAlignment="Top" Click="clearButton_Click"/>
         <!--Command Bar-->
 
     </Grid>
