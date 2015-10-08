@@ -30,7 +30,7 @@ namespace CanvasPractice
             inkCanvas.InkPresenter.InputDeviceTypes = Windows.UI.Core.CoreInputDeviceTypes.Mouse | Windows.UI.Core.CoreInputDeviceTypes.Pen;
         }
 
-
+        //adf
         private void redButton_Click(object sender, RoutedEventArgs e)
         {
             _inkDrawingAttributes.Color = Windows.UI.Colors.Red;
