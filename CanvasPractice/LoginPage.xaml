@@ -43,6 +43,7 @@
                   to whoever needs it-->
                 <Button Name="loginButton" Content="Log in" Click="loginButton_click" />
                 <HyperlinkButton Name="signUpButton" Content="Sign up" Click="signUpButton_click" Margin="90,0,90,0"/>
+                <HyperlinkButton Name="skipButton" Content="admin_skip" Click="skip_click" Margin="100,0,100,0"/>
             </StackPanel>
 
         </StackPanel>
