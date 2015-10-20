@@ -28,79 +28,85 @@ namespace CanvasPractice
         public MainPage()
         {
             this.InitializeComponent();
+            _inkCanvas = inkCanvas;
             _inkPresenter = inkCanvas.InkPresenter;
             _inkPresenter.InputDeviceTypes = Windows.UI.Core.CoreInputDeviceTypes.Mouse | Windows.UI.Core.CoreInputDeviceTypes.Pen;
+            _inkDrawingAttributes = new InkDrawingAttributes();
         }
 
-        //adf
         private void redButton_Click(object sender, RoutedEventArgs e)
         {
             _inkDrawingAttributes.Color = Windows.UI.Colors.Red;
-            inkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
+            _inkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
         }
 
         private void orangeButton_Click(object sender, RoutedEventArgs e)
         {
             _inkDrawingAttributes.Color = Windows.UI.Colors.Orange;
-            inkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
+            _inkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
         }
 
         private void yellowButton_Click(object sender, RoutedEventArgs e)
         {
             _inkDrawingAttributes.Color = Windows.UI.Colors.Yellow;
-            inkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
+            _inkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
         }
 
         private void greenButton_Click(object sender, RoutedEventArgs e)
         {
             _inkDrawingAttributes.Color = Windows.UI.Colors.Green;
-            inkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
+            _inkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
         }
 
         private void blueButton_Click(object sender, RoutedEventArgs e)
         {
             _inkDrawingAttributes.Color = Windows.UI.Colors.Azure;
-            inkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
+            _inkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
         }
 
         private void purpleButton_Click(object sender, RoutedEventArgs e)
         {
             _inkDrawingAttributes.Color = Windows.UI.Colors.Purple;
-            inkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
+            _inkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
         }
 
         private void blackButton_Click(object sender, RoutedEventArgs e)
         {
             _inkDrawingAttributes.Color = Windows.UI.Colors.Black;
-            inkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
+            _inkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
         }
 
         private void maxthickButton_Click(object sender, RoutedEventArgs e)
         {
-            _inkDrawingAttributes.Color = Windows.UI.Colors.Black;
-            inkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
+            updateThickness(6);
         }
 
         private void mediumthickButton_Click(object sender, RoutedEventArgs e)
         {
-            _inkDrawingAttributes.Color = Windows.UI.Colors.Black;
-            inkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
+            updateThickness(4);
         }
 
         private void normalthickButton_Click(object sender, RoutedEventArgs e)
         {
-            _inkDrawingAttributes.Color = Windows.UI.Colors.Black;
-            inkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
+            updateThickness(2);
+        }
+
+        private void updateThickness(int newSize)
+        {
+            var size = _inkDrawingAttributes.Size;
+            size.Width = newSize;
+            _inkDrawingAttributes.Size = size;
+            _inkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
         }
 
         private void drawButton_Click(object sender, RoutedEventArgs e)
         {
-            inkCanvas.InkPresenter.InputProcessingConfiguration.Mode = Windows.UI.Input.Inking.InkInputProcessingMode.Inking;
+            _inkPresenter.InputProcessingConfiguration.Mode = Windows.UI.Input.Inking.InkInputProcessingMode.Inking;
         }
 
         private void eraseButton_Click(object sender, RoutedEventArgs e)
         {
-            inkCanvas.InkPresenter.InputProcessingConfiguration.Mode = Windows.UI.Input.Inking.InkInputProcessingMode.Erasing;
+            _inkPresenter.InputProcessingConfiguration.Mode = Windows.UI.Input.Inking.InkInputProcessingMode.Erasing;
         }
 
         private void clearButton_Click(object sender, RoutedEventArgs e)
@@ -110,11 +116,14 @@ namespace CanvasPractice
 
         //http://stackoverflow.com/questions/6246009/inkcanvas-load-save-operations
         //https://msdn.microsoft.com/en-us/library/system.windows.controls.inkcanvas(v=vs.110).aspx
+        // https://social.msdn.microsoft.com/Forums/en-US/55bd1f52-78df-45b2-b5cc-5cb6fcfc6ea9/uwp-universal-window-app-run-on-windows-10-inkcanvas-strokes-save-to-jpg-file?forum=wpdevelop
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
-            //FileStream fileStream;
-            //String inkFileName = getFileName();
+            // GET FILENAME
+            String inkFileName = "drawings";
+            var fileStream = new FileStream(inkFileName, FileMode.Create);
+            //_inkCanvas.Strokes.Save(fileStream);
 
             //(inkFileName)
            
@@ -129,15 +138,10 @@ namespace CanvasPractice
             //return getFileName;
         //}
 
-
-
-
         private void loadButton_Click(object sender, RoutedEventArgs e)
         {
             
         }
-
-
 
         public void update_size(object sender, RoutedEventArgs e)
         {
@@ -157,6 +161,7 @@ namespace CanvasPractice
 
                 page.commandBar.SetValue(Grid.ColumnProperty, 0);
                 page.canvasBorder.SetValue(Grid.ColumnSpanProperty, 3);
+                commandBar.Width = page.ActualWidth;
 
             }
 
@@ -178,7 +183,8 @@ namespace CanvasPractice
         }
 
         // private variables
-        private InkDrawingAttributes _inkDrawingAttributes = new InkDrawingAttributes();
+        private InkCanvas _inkCanvas;
+        private InkDrawingAttributes _inkDrawingAttributes;
         private InkPresenter _inkPresenter;
     }
 }
