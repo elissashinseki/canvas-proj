@@ -28,7 +28,8 @@ namespace CanvasPractice
         public MainPage()
         {
             this.InitializeComponent();
-            inkCanvas.InkPresenter.InputDeviceTypes = Windows.UI.Core.CoreInputDeviceTypes.Mouse | Windows.UI.Core.CoreInputDeviceTypes.Pen;
+            _inkPresenter = inkCanvas.InkPresenter;
+            _inkPresenter.InputDeviceTypes = Windows.UI.Core.CoreInputDeviceTypes.Mouse | Windows.UI.Core.CoreInputDeviceTypes.Pen;
         }
 
         //adf
@@ -76,19 +77,25 @@ namespace CanvasPractice
 
         private void maxthickButton_Click(object sender, RoutedEventArgs e)
         {
-            _inkDrawingAttributes.Color = Windows.UI.Colors.Black;
+            var size = _inkDrawingAttributes.Size;
+            size.Width = 6;
+            _inkDrawingAttributes.Size = size;
             inkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
         }
 
         private void mediumthickButton_Click(object sender, RoutedEventArgs e)
         {
-            _inkDrawingAttributes.Color = Windows.UI.Colors.Black;
+            var size = _inkDrawingAttributes.Size;
+            size.Width = 4;
+            _inkDrawingAttributes.Size = size;
             inkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
         }
 
         private void normalthickButton_Click(object sender, RoutedEventArgs e)
         {
-            _inkDrawingAttributes.Color = Windows.UI.Colors.Black;
+            var size = _inkDrawingAttributes.Size;
+            size.Width = 2;
+            _inkDrawingAttributes.Size = size;
             inkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
         }
 
@@ -104,7 +111,7 @@ namespace CanvasPractice
 
         private void clearButton_Click(object sender, RoutedEventArgs e)
         {
-
+            _inkPresenter.StrokeContainer.Clear();
         }
 
         //http://stackoverflow.com/questions/6246009/inkcanvas-load-save-operations
@@ -112,13 +119,28 @@ namespace CanvasPractice
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
-           // String newFileName = "newDrawing";
+            //FileStream fileStream;
+            //String inkFileName = getFileName();
+
+            //(inkFileName)
+           
+                // String newFileName = "newDrawing";
            // var fs = new FileStream(newFileName, FileMode.Create);
         }
 
+        //private String getFileName()
+        //{
+            //Form testDialog = new Form;
+
+            //return getFileName;
+        //}
+
+
+
+
         private void loadButton_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
 
@@ -164,7 +186,7 @@ namespace CanvasPractice
 
         // private variables
         private InkDrawingAttributes _inkDrawingAttributes = new InkDrawingAttributes();
-
+        private InkPresenter _inkPresenter;
     }
 }
 
