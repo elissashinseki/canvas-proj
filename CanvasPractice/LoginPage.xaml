@@ -33,7 +33,7 @@
             <StackPanel Name="passWordPanel" Orientation="Horizontal" Margin="0,20,0,20">
                 <TextBlock Text="PassWord: "/>
             </StackPanel>
-
+ 
             <StackPanel Name="passwordInputPanel" Orientation="Horizontal" Margin="0,20,0,20">
                 <PasswordBox Name="passWordInput" Width="300" HorizontalAlignment="Left" />
             </StackPanel>
@@ -43,6 +43,7 @@
                   to whoever needs it-->
                 <Button Name="loginButton" Content="Log in" Click="loginButton_click" />
                 <HyperlinkButton Name="signUpButton" Content="Sign up" Click="signUpButton_click" Margin="90,0,90,0"/>
+                <HyperlinkButton Name="skipButton" Content="admin_skip" Click="skip_click" Margin="100,0,100,0"/>
             </StackPanel>
 
         </StackPanel>

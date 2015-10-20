@@ -112,5 +112,10 @@ namespace CanvasPractice
             
 
         }
+
+        private void skip_click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage));
+        }
     }
 }

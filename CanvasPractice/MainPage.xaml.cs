@@ -161,6 +161,7 @@ namespace CanvasPractice
 
                 page.commandBar.SetValue(Grid.ColumnProperty, 0);
                 page.canvasBorder.SetValue(Grid.ColumnSpanProperty, 3);
+                commandBar.Width = page.ActualWidth;
 
             }
 
