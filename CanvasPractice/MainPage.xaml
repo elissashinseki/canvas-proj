@@ -44,7 +44,16 @@
 
             <AppBarButton x:Name="clearAll" Label="Clear" Icon="Clear" Click="clearButton_Click">
             </AppBarButton>
-            
+
+            <AppBarButton x:Name="drawToggleFlyout" Icon="Edit" Label="Mode">
+                <Button.Flyout>
+                    <MenuFlyout>
+                        <MenuFlyoutItem Background="WhiteSmoke" Text="Draw" Foreground="Black" Tapped="drawButton_Click"/>
+                        <MenuFlyoutItem Background="WhiteSmoke" Text="Erase" Foreground="Black" Tapped="eraseButton_Click"/>
+                    </MenuFlyout>
+                </Button.Flyout>
+            </AppBarButton>
+
             <AppBarButton x:Name="colorflyout" Label="Color" Icon="Highlight">
                 <Button.Flyout>
                     <MenuFlyout>
