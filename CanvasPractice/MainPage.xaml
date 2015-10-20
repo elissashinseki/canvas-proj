@@ -22,16 +22,16 @@
         </Grid.ColumnDefinitions>
 
         <WebView x:Name="webview" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="http://www.theverge.com" Grid.Row="1" Grid.ColumnSpan="2" Visibility="Visible"/>
-        
+
         <Border x:Name="canvasBorder" BorderBrush="Gray" BorderThickness="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="1" Grid.RowSpan="2"></Border>
-        
+
         <TextBox x:Name="searchBox" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="URL" VerticalAlignment="Stretch" Grid.ColumnSpan="1" Grid.Row="0" Grid.Column="0" FontSize="16" FontWeight="Bold" Padding="20,10,6,10" />
         <Button x:Name="goButton" Content="go" BorderThickness="2" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Grid.ColumnSpan="1" Margin="0" MinWidth="65" MinHeight="50" />
         <InkCanvas x:Name="inkCanvas" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.RowSpan="2" Margin="0.167,0,0,0"/>
 
-        
+
         <!--Command Bar-->
-        <CommandBar x:Name="commandBar" Grid.Row="0" Grid.Column="2" VerticalAlignment="Top">
+        <CommandBar x:Name="commandBar" Grid.Row="0" Grid.Column="4" VerticalAlignment="Top">
             <CommandBar.Content>
                 <Grid/>
             </CommandBar.Content>
@@ -44,7 +44,7 @@
 
             <AppBarButton x:Name="clearAll" Label="Clear" Icon="Clear" Click="clearButton_Click">
             </AppBarButton>
-            
+
             <AppBarButton x:Name="colorflyout" Label="Color" Icon="Highlight">
                 <Button.Flyout>
                     <MenuFlyout>
@@ -58,7 +58,7 @@
                     </MenuFlyout>
                 </Button.Flyout>
             </AppBarButton>
-            
+
             <AppBarButton x:Name="thickflyout" Label="Stroke">
                 <AppBarButton.Icon>
                     <BitmapIcon UriSource="Assets/Stroke Thickness Broken.png"/>
@@ -72,7 +72,7 @@
                     </MenuFlyout>
                 </Button.Flyout>
             </AppBarButton>
-         </CommandBar>
+        </CommandBar>
         <!--Command Bar-->
 
     </Grid>
