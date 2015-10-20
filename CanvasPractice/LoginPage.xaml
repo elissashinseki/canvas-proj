@@ -8,42 +8,43 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <GridViewHeaderItem>
-            <ContentControl>
-                <ContentControl.Template>
-                    <ControlTemplate>
-                        <StackPanel Name="topPanel" Margin="10,40,10,40">
-                            <TextBlock Name="pageTitle" Text="Welcome! I dare you not to log-in nor sign-up." FontSize="33.333" Margin="319,0,-279.346,0" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
-                                <TextBlock.RenderTransform>
-                                    <CompositeTransform Rotation="-0.045"/>
-                                </TextBlock.RenderTransform>
-                            </TextBlock>
-                        </StackPanel>
-                    </ControlTemplate>
-                </ContentControl.Template>
-            </ContentControl>
-        </GridViewHeaderItem>
-        <StackPanel Name = "mastPanel" Margin="538,374,10,10">
-            <TextBlock Name="test" />
-            <TextBlock Text ="User Name: "/>
-            <StackPanel Name ="userInputPanel" Orientation="Horizontal" Margin="0,20,0,20">
-                <TextBox Name="userNameInput" Width="300" HorizontalContentAlignment="Left" />
-            </StackPanel>
+        <Grid.RowDefinitions>
+            
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="5*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+        
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3*" MinWidth="700"/>   
+            <ColumnDefinition Width="1*"/>
 
-            <StackPanel Name="passWordPanel" Orientation="Horizontal" Margin="0,20,0,20">
-                <TextBlock Text="PassWord: "/>
-            </StackPanel>
+        </Grid.ColumnDefinitions>
+            
+            <TextBlock Name="pageTitle" Text="Welcome! I dare you not to log-in nor sign-up." TextAlignment="Center" FontSize="30" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+        
+            <StackPanel Name = "mastPanel"  Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Name="test" />
+                <TextBlock Text ="User Name: "/>
+                
+                <StackPanel Name ="userInputPanel" Orientation="Horizontal" Margin="0,20,0,20">
+                    <TextBox Name="userNameInput" Width="300" HorizontalContentAlignment="Left" />
+                </StackPanel>
 
-            <StackPanel Name="passwordInputPanel" Orientation="Horizontal" Margin="0,20,0,20">
-                <PasswordBox Name="passWordInput" Width="300" HorizontalAlignment="Left" />
-            </StackPanel>
+                <StackPanel Name="passWordPanel" Orientation="Horizontal" Margin="0,20,0,20">
+                    <TextBlock Text="PassWord: "/>
+                </StackPanel>
 
-            <StackPanel Name="loginButtonPanel" Orientation="Horizontal" Margin="0,20,0,20">
-                <!--COMMENT MING: this button will be modified later to be used to log in, send data
-                  to whoever needs it-->
-                <Button Name="loginButton" Content="Log in" Click="loginButton_click" />
-                <HyperlinkButton Name="signUpButton" Content="Sign up" Click="signUpButton_click" Margin="90,0,90,0"/>
-            </StackPanel>
+                <StackPanel Name="passwordInputPanel" Orientation="Horizontal" Margin="0,20,0,20">
+                    <PasswordBox Name="passWordInput" Width="300" HorizontalAlignment="Left" />
+                </StackPanel>
+
+                <Button Name="loginButton" Content="Log in" Click="loginButton_click" HorizontalAlignment="Stretch" VerticalAlignment="Center" />
+                <HyperlinkButton Name="signUpButton" Content="Sign up" Click="signUpButton_click" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+             
 
         </StackPanel>
     </Grid>

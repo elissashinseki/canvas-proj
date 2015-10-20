@@ -61,7 +61,7 @@
             
             <AppBarButton x:Name="thickflyout" Label="Stroke">
                 <AppBarButton.Icon>
-                    <BitmapIcon UriSource="Assets/Stroke Thickness Broken.png"/>
+                    <BitmapIcon UriSource="Assets/Stroke Thickness Broken.png" Height="20" VerticalAlignment="Top"/>
                 </AppBarButton.Icon>
 
                 <Button.Flyout>

@@ -8,20 +8,43 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Canvas HorizontalAlignment="Left" Height="734" VerticalAlignment="Top" Width="1131">
-            <TextBlock x:Name="passWord" Text="Enter desired user password: " HorizontalAlignment="Left" Width="324" VerticalAlignment="Center" Height="31" Canvas.Left="91" Canvas.Top="224"/>
-            <TextBlock x:Name="email" Text="Enter email address: " HorizontalAlignment="Left" Width="226" VerticalAlignment="Center" Height="32" Canvas.Left="138" Canvas.Top="272" />
-            <PasswordBox x:Name="passWordInput" Width="514" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Canvas.Top="224" Canvas.Left="336"/>
-            <TextBox x:Name="emailInput" Width="514" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Canvas.Top="272" Canvas.Left="336"/>
-            <TextBlock x:Name="userName" Text="Enter desired username: " HorizontalAlignment="Left" Width="273" VerticalAlignment="Center" Height="31" Canvas.Left="112" Canvas.Top="126"/>
-            <TextBlock x:Name="passWord_Copy" Text="Enter desired user password: " HorizontalAlignment="Left" Width="324" VerticalAlignment="Center" Height="32" Canvas.Left="91" Canvas.Top="171" />
-            <TextBox x:Name="userNameInput" Width="514" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Canvas.Top="117" Canvas.Left="336" />
-            <PasswordBox x:Name="passWordInput_Copy" Width="514" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Canvas.Top="171" Canvas.Left="336"/>
-            <TextBlock x:Name="phone" Text="Enter phone number: " HorizontalAlignment="Left" Width="239" VerticalAlignment="Center" Height="32" Canvas.Left="131" Canvas.Top="321" />
-            <TextBox x:Name="phoneInput" Width="514" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Canvas.Top="321" Canvas.Left="336"  />
-            <Button x:Name="back" HorizontalAlignment="Center" Content="Cancel" Click="backButton_Click" Height="36" Width="119" RenderTransformOrigin="6.712,6.179" VerticalAlignment="Center" Canvas.Left="732" Canvas.Top="403" />
-            <Button x:Name="create" HorizontalAlignment="Stretch" Content="Create" Click="create_Click" Height="36" Width="119" VerticalAlignment="Center" Canvas.Top="403" Canvas.Left="337"/>
-        </Canvas>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" MinWidth="50"/>
+            <ColumnDefinition Width="2*" MinWidth="275"/>
+            <ColumnDefinition Width="2*" MinWidth="275"/>
+            <ColumnDefinition Width="2*" MinWidth="50"/>
+
+
+        </Grid.ColumnDefinitions>
+
+            <TextBlock x:Name="userName" Text="Enter desired username: " HorizontalAlignment="Left"  VerticalAlignment="Center"  SelectionChanged="userName_SelectionChanged" FontSize="21.333"  Grid.Column="1" Grid.Row="1"/>
+            <TextBlock x:Name="email" Text="Enter email address: " HorizontalAlignment="Left" Width="226" VerticalAlignment="Center" Height="40" Canvas.Left="138" Canvas.Top="272" FontSize="21.333"  Grid.Column="1" Grid.Row="2" />
+            <TextBlock x:Name="phone" Text="Enter phone number: " HorizontalAlignment="Left" Width="239" VerticalAlignment="Center" Height="40" FontSize="21.333"  Grid.Column="1" Grid.Row="3"/>
+            <TextBlock x:Name="passWord" Text="Enter desired user password: " HorizontalAlignment="Left" Width="324" VerticalAlignment="Center" Height="40" FontSize="21.333" Grid.Column="1" Grid.Row="4"/>
+            <TextBlock x:Name="passWord_Copy" Text="Repeat password: " HorizontalAlignment="Left" Width="324" VerticalAlignment="Center" Height="40" FontSize="21.333"  Grid.Column="1" Grid.Row="5"/>
+
+            <TextBox x:Name="userNameInput" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="40" Grid.Column="2" Grid.Row="1"/>
+            <TextBox x:Name="emailInput" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="40"  Grid.Column="2" Grid.Row="2"/>
+            <PasswordBox x:Name="passWordInput_Copy" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="40" Grid.Column="2" Grid.Row="3"/>
+            <TextBox x:Name="phoneInput"  HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="40" Grid.Column="2" Grid.Row="4"/>
+            <PasswordBox x:Name="passWordInput" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="40" Grid.Column="2" Grid.Row="5"/>
+
+            <Button x:Name="back" HorizontalAlignment="Stretch" VerticalAlignment="Top" Content="Cancel" Click="backButton_Click" Height="36" BorderBrush="Black" BorderThickness=".5" Grid.Column="1" Grid.Row="7"/>
+            <Button x:Name="create" HorizontalAlignment="Stretch" Content="Submit" Click="create_Click" Height="36" VerticalAlignment="Top" BorderBrush="Black" BorderThickness=".5" Grid.Column="2" Grid.Row="7"/>
+   
     </Grid>
 </Page>
 

@@ -38,6 +38,9 @@ namespace CanvasPractice
             { username = userNameInput.Text, password = passWordInput.Password });
         }
 
- 
+        private void userName_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
