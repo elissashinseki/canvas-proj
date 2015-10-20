@@ -77,19 +77,25 @@ namespace CanvasPractice
 
         private void maxthickButton_Click(object sender, RoutedEventArgs e)
         {
-            _inkDrawingAttributes.Color = Windows.UI.Colors.Black;
+            var size = _inkDrawingAttributes.Size;
+            size.Width = 6;
+            _inkDrawingAttributes.Size = size;
             inkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
         }
 
         private void mediumthickButton_Click(object sender, RoutedEventArgs e)
         {
-            _inkDrawingAttributes.Color = Windows.UI.Colors.Black;
+            var size = _inkDrawingAttributes.Size;
+            size.Width = 4;
+            _inkDrawingAttributes.Size = size;
             inkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
         }
 
         private void normalthickButton_Click(object sender, RoutedEventArgs e)
         {
-            _inkDrawingAttributes.Color = Windows.UI.Colors.Black;
+            var size = _inkDrawingAttributes.Size;
+            size.Width = 2;
+            _inkDrawingAttributes.Size = size;
             inkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(_inkDrawingAttributes);
         }
 
