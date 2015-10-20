@@ -1,4 +1,4 @@
-﻿   <Page
+﻿<Page
     x:Class="CanvasPractice.SignUpPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -8,49 +8,20 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <GridViewHeaderItem>
-            <TextBlock Text="Please fill in the following information." HorizontalAlignment="Center"/>
-        </GridViewHeaderItem>
-
-         
-        
-        <StackPanel Name="MastStackPanel" Margin="502,167,10,40">
-            <TextBlock Name="test" />
-            <TextBlock Name="userName" Text="Enter desired user name: " />
-            <StackPanel Name="userNamePanel" Margin="10,20,10,20">
-                <TextBox Name="userNameInput" Width="300" HorizontalAlignment="Left" />
-            </StackPanel>
-        </StackPanel>
-
-        <StackPanel Name="passwordStackPanel" Margin="502,279,10,40">
-            <TextBlock Name="passWord" Text="Enter desired user password: " />
-            <StackPanel Name="passWordpanel" Margin="10,20,10,20">
-                <PasswordBox Name="passWordInput" Width="300" HorizontalAlignment="Left"/>
-            </StackPanel>
-        </StackPanel>
-
-        <StackPanel Name="emailStackPanel" Margin="502,404,10,40">
-            <TextBlock Name="email" Text="Enter desired user email: " />
-            <StackPanel Name="emailpanel" Margin="10,20,10,20">
-                <TextBox Name="emailInput" Width="300" HorizontalAlignment="Left"/>
-            </StackPanel>
-        </StackPanel>
-
-        <StackPanel Name="phoneStackPanel" Margin="502,527,71,311">
-            <TextBlock Name="phone" Text="Enter desired user phone: " />
-            <StackPanel Name="phonePanel" Margin="10,20,10,20">
-                <TextBox Name="phoneInput" Width="300" HorizontalAlignment="Left"  />
-            </StackPanel>
-        </StackPanel>
-
-        <StackPanel Name="buttonsPanel" Orientation="Horizontal" Margin="140,82,90,167" >
-
-            <Button x:Name="create" HorizontalAlignment="Left" Content="Create" Click="create_Click" Height="36" Width="63"  />
-        </StackPanel>
-
-        <StackPanel Name="buttonPanel2" Orientation="Horizontal" Margin="140,304,71,263">
-            <Button Name="back" HorizontalAlignment="Left" Content="Cancel" Click="backButton_Click" />
-        </StackPanel>
+        <Canvas HorizontalAlignment="Left" Height="734" VerticalAlignment="Top" Width="1131">
+            <TextBlock x:Name="passWord" Text="Enter desired user password: " HorizontalAlignment="Left" Width="324" VerticalAlignment="Center" Height="31" Canvas.Left="91" Canvas.Top="224"/>
+            <TextBlock x:Name="email" Text="Enter email address: " HorizontalAlignment="Left" Width="226" VerticalAlignment="Center" Height="32" Canvas.Left="138" Canvas.Top="272" />
+            <PasswordBox x:Name="passWordInput" Width="514" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Canvas.Top="224" Canvas.Left="336"/>
+            <TextBox x:Name="emailInput" Width="514" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Canvas.Top="272" Canvas.Left="336"/>
+            <TextBlock x:Name="userName" Text="Enter desired username: " HorizontalAlignment="Left" Width="273" VerticalAlignment="Center" Height="31" Canvas.Left="112" Canvas.Top="126"/>
+            <TextBlock x:Name="passWord_Copy" Text="Enter desired user password: " HorizontalAlignment="Left" Width="324" VerticalAlignment="Center" Height="32" Canvas.Left="91" Canvas.Top="171" />
+            <TextBox x:Name="userNameInput" Width="514" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Canvas.Top="117" Canvas.Left="336" />
+            <PasswordBox x:Name="passWordInput_Copy" Width="514" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Canvas.Top="171" Canvas.Left="336"/>
+            <TextBlock x:Name="phone" Text="Enter phone number: " HorizontalAlignment="Left" Width="239" VerticalAlignment="Center" Height="32" Canvas.Left="131" Canvas.Top="321" />
+            <TextBox x:Name="phoneInput" Width="514" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Canvas.Top="321" Canvas.Left="336"  />
+            <Button x:Name="back" HorizontalAlignment="Center" Content="Cancel" Click="backButton_Click" Height="36" Width="119" RenderTransformOrigin="6.712,6.179" VerticalAlignment="Center" Canvas.Left="732" Canvas.Top="403" />
+            <Button x:Name="create" HorizontalAlignment="Stretch" Content="Create" Click="create_Click" Height="36" Width="119" VerticalAlignment="Center" Canvas.Top="403" Canvas.Left="337"/>
+        </Canvas>
     </Grid>
 </Page>
 
