@@ -15,6 +15,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Popups;
+using Windows.Storage.Streams;
+using Windows.Storage;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -114,33 +116,50 @@ namespace CanvasPractice
             _inkPresenter.StrokeContainer.Clear();
         }
 
+        // https://msdn.microsoft.com/en-us/library/windows/apps/Dn922011(v=win.10).aspx?appId=Dev14IDEF1&l=EN-US&k=k(Windows.UI.Input.Inking.InkPresenter)%3bk(TargetFrameworkMoniker-.NETCore,Version%3dv5.0)%3bk(DevLang-csharp)&rd=true
         //http://stackoverflow.com/questions/6246009/inkcanvas-load-save-operations
-        //https://msdn.microsoft.com/en-us/library/system.windows.controls.inkcanvas(v=vs.110).aspx
         // https://social.msdn.microsoft.com/Forums/en-US/55bd1f52-78df-45b2-b5cc-5cb6fcfc6ea9/uwp-universal-window-app-run-on-windows-10-inkcanvas-strokes-save-to-jpg-file?forum=wpdevelop
-
+        // http://www.scriptscoop.com/t/76446e53245c/c-save-strokes-of-inkmanager-in-localstorage-windows-8-app.html
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
+            String inkFileName = "drawing";
+            var strokes = _inkPresenter.StrokeContainer.GetStrokes();
+            //saveToFile(inkFileName, strokes);
+        }
+
+        public async void saveToFile(String inkFileName, byte[] strokes)
+        {
             // GET FILENAME
-            String inkFileName = "drawings";
-            var fileStream = new FileStream(inkFileName, FileMode.Create);
-            //_inkCanvas.Strokes.Save(fileStream);
+            //StorageFolder localFolder = ApplicationData.Current.LocalFolder;
+
+            var folderName = ApplicationData.Current.LocalFolder;
+            var collisionCase = CreationCollisionOption.OpenIfExists;
+            var storageFile = await folderName.CreateFileAsync(inkFileName, collisionCase); 
+            
+            if (storageFile != null)
+            {
+                await Windows.Storage.FileIO.WriteBytesAsync(storageFile);
+            }
+
+            //var strokes = _inkPresenter.StrokeContainer.SaveAsync(fileStream);
+            //Save(fileStream);
 
             //(inkFileName)
-           
-                // String newFileName = "newDrawing";
-           // var fs = new FileStream(newFileName, FileMode.Create);
+
+            // String newFileName = "newDrawing";
+            // var fs = new FileStream(newFileName, FileMode.Create);
         }
 
         //private String getFileName()
         //{
-            //Form testDialog = new Form;
+        //Form testDialog = new Form;
 
-            //return getFileName;
+        //return getFileName;
         //}
 
         private void loadButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            var fileStream = new FileInputStream();
         }
 
         public void update_size(object sender, RoutedEventArgs e)
