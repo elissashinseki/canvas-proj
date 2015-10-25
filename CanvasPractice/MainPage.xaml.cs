@@ -32,7 +32,7 @@ namespace CanvasPractice
             this.InitializeComponent();
             _inkCanvas = inkCanvas;
             _inkPresenter = inkCanvas.InkPresenter;
-            _inkPresenter.InputDeviceTypes = Windows.UI.Core.CoreInputDeviceTypes.Mouse | Windows.UI.Core.CoreInputDeviceTypes.Pen;
+            _inkPresenter.InputDeviceTypes = Windows.UI.Core.CoreInputDeviceTypes.Mouse | Windows.UI.Core.CoreInputDeviceTypes.Pen | Windows.UI.Core.CoreInputDeviceTypes.Touch;
             _inkDrawingAttributes = new InkDrawingAttributes();
         }
 
@@ -116,14 +116,20 @@ namespace CanvasPractice
             _inkPresenter.StrokeContainer.Clear();
         }
 
+        private void backButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         // https://msdn.microsoft.com/en-us/library/windows/apps/Dn922011(v=win.10).aspx?appId=Dev14IDEF1&l=EN-US&k=k(Windows.UI.Input.Inking.InkPresenter)%3bk(TargetFrameworkMoniker-.NETCore,Version%3dv5.0)%3bk(DevLang-csharp)&rd=true
         //http://stackoverflow.com/questions/6246009/inkcanvas-load-save-operations
         // https://social.msdn.microsoft.com/Forums/en-US/55bd1f52-78df-45b2-b5cc-5cb6fcfc6ea9/uwp-universal-window-app-run-on-windows-10-inkcanvas-strokes-save-to-jpg-file?forum=wpdevelop
         // http://www.scriptscoop.com/t/76446e53245c/c-save-strokes-of-inkmanager-in-localstorage-windows-8-app.html
+
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
-            String inkFileName = "drawing";
-            var strokes = _inkPresenter.StrokeContainer.GetStrokes();
+            //String inkFileName = "drawing";
+            //var strokes = _inkPresenter.StrokeContainer.GetStrokes();
             //saveToFile(inkFileName, strokes);
         }
 
@@ -138,7 +144,7 @@ namespace CanvasPractice
             
             if (storageFile != null)
             {
-                await Windows.Storage.FileIO.WriteBytesAsync(storageFile);
+            //    await Windows.Storage.FileIO.WriteBytesAsync(storageFile);
             }
 
             //var strokes = _inkPresenter.StrokeContainer.SaveAsync(fileStream);
@@ -159,7 +165,7 @@ namespace CanvasPractice
 
         private void loadButton_Click(object sender, RoutedEventArgs e)
         {
-            var fileStream = new FileInputStream();
+          //  var fileStream = new FileInputStream();
         }
 
         public void update_size(object sender, RoutedEventArgs e)
@@ -171,16 +177,14 @@ namespace CanvasPractice
                 page.webview.Visibility = Visibility.Collapsed;
                 page.searchBox.Visibility = Visibility.Collapsed;
                 page.goButton.Visibility = Visibility.Collapsed;
+                page.backButton.Visibility = Visibility.Collapsed;
 
                 page.inkCanvas.SetValue(Grid.ColumnProperty, 0);
-                page.inkCanvas.SetValue(Grid.ColumnSpanProperty, 3);
+                page.inkCanvas.SetValue(Grid.ColumnSpanProperty, 4);
 
                 page.canvasBorder.SetValue(Grid.ColumnProperty, 0);
-                page.canvasBorder.SetValue(Grid.ColumnSpanProperty, 3);
-
-                page.commandBar.SetValue(Grid.ColumnProperty, 0);
-                page.canvasBorder.SetValue(Grid.ColumnSpanProperty, 3);
-                commandBar.Width = page.ActualWidth;
+                page.canvasBorder.SetValue(Grid.ColumnSpanProperty, 4);
+                page.canvasBorder.SetValue(Grid.ColumnSpanProperty, 4);
 
             }
 
@@ -189,14 +193,13 @@ namespace CanvasPractice
                 page.webview.Visibility = Visibility.Visible;
                 page.searchBox.Visibility = Visibility.Visible;
                 page.goButton.Visibility = Visibility.Visible;
+                page.backButton.Visibility = Visibility.Visible;
 
-                page.inkCanvas.SetValue(Grid.ColumnProperty, 2);
+                page.inkCanvas.SetValue(Grid.ColumnProperty, 3);
                 page.inkCanvas.SetValue(Grid.ColumnSpanProperty, 1);
 
-                page.canvasBorder.SetValue(Grid.ColumnProperty, 2);
+                page.canvasBorder.SetValue(Grid.ColumnProperty, 3);
                 page.canvasBorder.SetValue(Grid.ColumnSpanProperty, 1);
-
-                page.commandBar.SetValue(Grid.ColumnProperty, 2);
                 page.canvasBorder.SetValue(Grid.ColumnSpanProperty, 1);
             }
         }
@@ -205,6 +208,8 @@ namespace CanvasPractice
         private InkCanvas _inkCanvas;
         private InkDrawingAttributes _inkDrawingAttributes;
         private InkPresenter _inkPresenter;
+
+        
     }
 }
 
