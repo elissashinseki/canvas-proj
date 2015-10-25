@@ -34,8 +34,6 @@ namespace CanvasPractice
             _inkPresenter = inkCanvas.InkPresenter;
             _inkPresenter.InputDeviceTypes = Windows.UI.Core.CoreInputDeviceTypes.Mouse | Windows.UI.Core.CoreInputDeviceTypes.Pen | Windows.UI.Core.CoreInputDeviceTypes.Touch;
             _inkDrawingAttributes = new InkDrawingAttributes();
-
-
         }
 
         private void redButton_Click(object sender, RoutedEventArgs e)
