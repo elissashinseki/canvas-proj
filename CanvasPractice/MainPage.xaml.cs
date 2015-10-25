@@ -34,6 +34,8 @@ namespace CanvasPractice
             _inkPresenter = inkCanvas.InkPresenter;
             _inkPresenter.InputDeviceTypes = Windows.UI.Core.CoreInputDeviceTypes.Mouse | Windows.UI.Core.CoreInputDeviceTypes.Pen | Windows.UI.Core.CoreInputDeviceTypes.Touch;
             _inkDrawingAttributes = new InkDrawingAttributes();
+
+
         }
 
         private void redButton_Click(object sender, RoutedEventArgs e)
@@ -168,6 +170,33 @@ namespace CanvasPractice
           //  var fileStream = new FileInputStream();
         }
 
+        private void web_Check(object sender, RoutedEventArgs e)
+        {
+            webview.Visibility = Visibility.Visible;
+            searchBox.Visibility = Visibility.Visible;
+            goButton.Visibility = Visibility.Visible;
+            backButton.Visibility = Visibility.Visible;
+
+            inkCanvas.SetValue(Grid.ColumnProperty, 3);
+            inkCanvas.SetValue(Grid.ColumnSpanProperty, 1);
+
+            canvasBorder.SetValue(Grid.ColumnProperty, 3);
+            canvasBorder.SetValue(Grid.ColumnSpanProperty, 1);
+            canvasBorder.SetValue(Grid.ColumnSpanProperty, 1);
+        }
+
+        private void web_Uncheck(object sender, RoutedEventArgs e)
+        {
+            webview.Visibility = Visibility.Collapsed;
+            searchBox.Visibility = Visibility.Collapsed;
+            goButton.Visibility = Visibility.Collapsed;
+            backButton.Visibility = Visibility.Collapsed;
+
+            canvasBorder.SetValue(Grid.ColumnProperty, 0);
+            canvasBorder.SetValue(Grid.ColumnSpanProperty, 4);
+            canvasBorder.SetValue(Grid.ColumnSpanProperty, 4);
+        }
+
         public void update_size(object sender, RoutedEventArgs e)
         {
             MainPage page = (MainPage)sender;
@@ -209,7 +238,6 @@ namespace CanvasPractice
         private InkDrawingAttributes _inkDrawingAttributes;
         private InkPresenter _inkPresenter;
 
-        
     }
 }
 

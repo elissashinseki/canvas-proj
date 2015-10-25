@@ -8,8 +8,8 @@
     mc:Ignorable="d"
     SizeChanged="update_size">
 
-        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="18*"></RowDefinition>
@@ -22,24 +22,26 @@
         </Grid.ColumnDefinitions>
 
         <WebView x:Name="webview" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="http://www.theverge.com" Grid.Row="1" Grid.ColumnSpan="3" Visibility="Visible"/>
-        
+
         <Border x:Name="canvasBorder" BorderBrush="Gray" BorderThickness="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="3" Grid.Row="0" Grid.ColumnSpan="1" Grid.RowSpan="2" Margin="0,1,0,-1"></Border>
-        
+
         <TextBox x:Name="searchBox" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="URL" VerticalAlignment="Center" Grid.ColumnSpan="1" Grid.Row="0" Grid.Column="1" FontSize="18.667" Padding="20,10,6,10" />
         <Button x:Name="goButton" Content="go" BorderThickness="2" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Grid.ColumnSpan="1" Margin="0" MinWidth="65" MinHeight="50" />
         <Button x:Name="backButton" Content="back" BorderThickness="2" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Grid.ColumnSpan="1" Margin="0" MinWidth="65" MinHeight="50" Click="backButton_Click" />
         <InkCanvas x:Name="inkCanvas" Grid.Column="3" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.RowSpan="2" />
-        
+
     </Grid>
 
 
-<!--Command Bar-->
+    <!--Command Bar-->
     <Page.BottomAppBar>
-       <CommandBar>
-            
-           <CommandBar.Content>
+        <CommandBar>
+
+            <CommandBar.Content>
                 <Grid/>
             </CommandBar.Content>
+
+            <AppBarToggleButton x:Name="webView" Label="Web View" Icon="World" Unchecked="web_Uncheck" Checked="web_Check"/>
 
             <AppBarButton x:Name="loadFile" Label="Load" Icon="OpenFile" Click="loadButton_Click">
             </AppBarButton>
@@ -85,11 +87,11 @@
                         <MenuFlyoutItem Background="LightGray" Text="Normal" Foreground="Black" Tapped="normalthickButton_Click"/>
                     </MenuFlyout>
                 </Button.Flyout>
-                
+
             </AppBarButton>
         </CommandBar>
     </Page.BottomAppBar>
     <!--Command Bar-->
-    
+
 </Page>
 
