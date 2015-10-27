@@ -15,6 +15,9 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Popups;
+using Windows.Storage.Streams;
+using Windows.Storage;
+
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -130,20 +133,31 @@ namespace CanvasPractice
         // https://github.com/Microsoft/Windows-universal-samples/blob/93bdfb92b3da76f2e49c959807fc5643bf0940c9/Samples/SimpleInk/cs/Scenario1.xaml.cs
         async void saveButton_Click(object sender, RoutedEventArgs e)
         {
-            // GET FILENAME
-            String inkFileName = "drawings";
-            var fileStream = new FileStream(inkFileName, FileMode.Create);
-            //_inkCanvas.Strokes.Save(fileStream);
+            if (_inkPresenter.StrokeContainer.GetStrokes().Count > 0)
+            {
+                var save = new Windows.Storage.Pickers.FileSavePicker();
+                save.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.PicturesLibrary;
+                save.FileTypeChoices.Add("Gif with embedded ISF", new System.Collections.Generic.List<String> { ".gif" });
 
-            //(inkFileName)
+                Windows.Storage.StorageFile file = await save.PickSaveFileAsync();
 
-                // String newFileName = "newDrawing";
-           // var fs = new FileStream(newFileName, FileMode.Create);
+                if (null != file)
+                {
+                    try
+                    {
+                        using (IRandomAccessStream stream = await file.OpenAsync(FileAccessMode.ReadWrite))
+                        {
+                            await inkCanvas.InkPresenter.StrokeContainer.SaveAsync(stream);
                         }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Figure out how to notify the user of failure
+                    }
+                }
+            }
+        }
 
-        //private String getFileName()
-        //{
-            //Form testDialog = new Form;
 
         async void loadButton_Click(object sender, RoutedEventArgs e)
         {
@@ -158,14 +172,14 @@ namespace CanvasPractice
             {
                 using (var stream = await file.OpenSequentialReadAsync())
                 {
-                    try
-                    {
-                        await inkCanvas.InkPresenter.StrokeContainer.LoadAsync(stream);
-                    }
-                    catch(Exception ex)
-        {
-                        // Figure out how to notify user of failure
-                    }
+                    //try
+                    //{
+                    //    await inkCanvas.InkPresenter.StrokeContainer.LoadAsync(stream);
+                    //}
+                    //catch (Exception ex)
+                    //{
+                    //    // Figure out how to notify user of failure
+                    //}
                 }
             }
         }
