@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
+
 namespace CanvasPractice
 {
     /// <summary>
@@ -60,7 +61,7 @@ namespace CanvasPractice
            
            if(canLogin)
             {
-                this.Frame.Navigate(typeof(MainPage));
+                this.Frame.Navigate(typeof(MainPage), new passData {username = userNameInput.Text});
             }
            else
             {
@@ -109,9 +110,7 @@ namespace CanvasPractice
             else
             {
             }
-            
-
-        }
+       }
 
         private void skip_click(object sender, RoutedEventArgs e)
         {

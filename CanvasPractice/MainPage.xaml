@@ -8,7 +8,6 @@
     mc:Ignorable="d"
     SizeChanged="update_size">
 
-
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
         <Grid.RowDefinitions>
@@ -41,6 +40,7 @@
             </CommandBar.Content>
 
             <AppBarToggleButton x:Name="hideBrowser" Label="Browser" Icon="Globe" Checked="hideBrowser_Checked" Unchecked="hideBrowser_Unchecked"/>
+            <AppBarButton x:Name="userNameButton" Label= "NAME"/> <!--MING's USERNAME BUTTON-->
 
             <AppBarButton x:Name="loadFile" Label="Load" Icon="OpenFile" Click="loadButton_Click"/>
 

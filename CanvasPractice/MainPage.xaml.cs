@@ -37,7 +37,7 @@ namespace CanvasPractice
             searchBox.Visibility = Visibility.Collapsed;
             goButton.Visibility = Visibility.Collapsed;
             backButton.Visibility = Visibility.Collapsed;
-
+            
         }
 
         private void redButton_Click(object sender, RoutedEventArgs e)
@@ -210,11 +210,30 @@ namespace CanvasPractice
             _isShown = true;
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e) // take passed on data
+        {
+            var dataPasser = e.Parameter as passData;
+
+            if (dataPasser != null)
+            {
+                _currerntUserName = dataPasser.username;
+               
+                    userNameButton.Content = _currerntUserName;
+            }
+            else
+            {
+                _currerntUserName = "Fail";
+            }
+
+
+        }
+
         // private variables
         private InkCanvas _inkCanvas;
         private InkDrawingAttributes _inkDrawingAttributes;
         private InkPresenter _inkPresenter;
         private Boolean _isShown;
+        private string _currerntUserName;
 
     }
 }
