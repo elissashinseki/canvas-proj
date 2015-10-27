@@ -15,6 +15,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Popups;
+using Windows.Storage.Streams;
+using Windows.Storage;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -121,28 +123,61 @@ namespace CanvasPractice
         }
 
         //http://stackoverflow.com/questions/6246009/inkcanvas-load-save-operations
-        //https://msdn.microsoft.com/en-us/library/system.windows.controls.inkcanvas(v=vs.110).aspx
+        //https://msdn.microsoft.com/en-us/library/windows/apps/windows.ui.xaml.controls.inkcanvas.aspx
         // https://social.msdn.microsoft.com/Forums/en-US/55bd1f52-78df-45b2-b5cc-5cb6fcfc6ea9/uwp-universal-window-app-run-on-windows-10-inkcanvas-strokes-save-to-jpg-file?forum=wpdevelop
 
-        private void saveButton_Click(object sender, RoutedEventArgs e)
+        // https://github.com/Microsoft/Windows-universal-samples/blob/93bdfb92b3da76f2e49c959807fc5643bf0940c9/Samples/SimpleInk/cs/Scenario1.xaml.cs
+        async void saveButton_Click(object sender, RoutedEventArgs e)
         {
-            // GET FILENAME
-            String inkFileName = "drawings";
-            var fileStream = new FileStream(inkFileName, FileMode.Create);
-            //_inkCanvas.Strokes.Save(fileStream);
+            if (_inkPresenter.StrokeContainer.GetStrokes().Count > 0)
+            {
+                var save = new Windows.Storage.Pickers.FileSavePicker();
+                save.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.PicturesLibrary;
+                save.FileTypeChoices.Add("Gif with embedded ISF", new System.Collections.Generic.List<String> { ".gif" });
 
-            //(inkFileName)
-           
-                // String newFileName = "newDrawing";
-           // var fs = new FileStream(newFileName, FileMode.Create);
+                Windows.Storage.StorageFile file = await save.PickSaveFileAsync();
+
+                if (null != file)
+                {
+                    try
+                    {
+                        using (IRandomAccessStream stream = await file.OpenAsync(FileAccessMode.ReadWrite))
+                        {
+                            await inkCanvas.InkPresenter.StrokeContainer.SaveAsync(stream);
+                        }
+                    }
+                    catch(Exception ex)
+                    {
+                        // Figure out how to notify the user of save
+                    }
+                }
+
+            }
+
         }
 
         //private String getFileName()
         //{
-            //Form testDialog = new Form;
+        //Form testDialog = new Form;
 
-            //return getFileName;
+        //return getFileName;
+
+        // GET FILENAME
+        //String inkFileName = "drawings";
+        //var fileStream = new FileStream(inkFileName, FileMode.Create);
+        //var strokes = _inkPresenter.StrokeContainer.GetStrokes();
+        //var outputStream = new FileStream("c:\\data\\output-text.txt");
+        //_inkPresenter.StrokeContainer.SaveAsync(outputStream);
+
+            //_inkCanvas.Strokes.Save(fileStream);
+
+      
+            //(inkFileName)
+           
+                // String newFileName = "newDrawing";
+           // var fs = new FileStream(newFileName, FileMode.Create);
         //}
+
 
         private void loadButton_Click(object sender, RoutedEventArgs e)
         {
