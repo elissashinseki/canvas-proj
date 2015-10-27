@@ -7,44 +7,52 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid.RowDefinitions>
-            
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="White" Offset="0"/>
+                <GradientStop Color="#FF00B0A8" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        
+         <Grid.RowDefinitions>
+
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="5*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
-        
+
         </Grid.RowDefinitions>
-        
+
         <Grid.ColumnDefinitions>
-        
+
             <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="3*" MinWidth="700"/>   
+            <ColumnDefinition Width="3*" MinWidth="700"/>
             <ColumnDefinition Width="1*"/>
 
         </Grid.ColumnDefinitions>
-            
-            <TextBlock Name="pageTitle" Text="Welcome! I dare you not to log-in nor sign-up." TextAlignment="Center" FontSize="30" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
-        
-            <StackPanel Name = "mastPanel"  Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <TextBlock Name="test" />
-                <TextBlock Text ="User Name: "/>
-                
-                <StackPanel Name ="userInputPanel" Orientation="Horizontal" Margin="0,20,0,20">
-                    <TextBox Name="userNameInput" Width="300" HorizontalContentAlignment="Left" />
-                </StackPanel>
 
-                <StackPanel Name="passWordPanel" Orientation="Horizontal" Margin="0,20,0,20">
-                    <TextBlock Text="PassWord: "/>
-                </StackPanel>
+        <TextBlock Name="pageTitle" Text="Welcome!" TextAlignment="Center" FontSize="30" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
 
-                <StackPanel Name="passwordInputPanel" Orientation="Horizontal" Margin="0,20,0,20">
-                    <PasswordBox Name="passWordInput" Width="300" HorizontalAlignment="Left" />
-                </StackPanel>
+        <StackPanel Name = "mastPanel"  Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Name="test" />
+            <TextBlock Text ="User Name: "/>
 
-                <Button Name="loginButton" Content="Log in" Click="loginButton_click" HorizontalAlignment="Stretch" VerticalAlignment="Center" />
-                <HyperlinkButton Name="signUpButton" Content="Sign up" Click="signUpButton_click" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
-             
+            <StackPanel Name ="userInputPanel" Orientation="Horizontal" Margin="0,20,0,20">
+                <TextBox Name="userNameInput" Width="300" HorizontalContentAlignment="Left" Background="White" />
+            </StackPanel>
+
+            <StackPanel Name="passWordPanel" Orientation="Horizontal" Margin="0,20,0,20">
+                <TextBlock Text="Password: "/>
+            </StackPanel>
+
+            <StackPanel Name="passwordInputPanel" Orientation="Horizontal" Margin="0,0,0,70">
+                <PasswordBox Name="passWordInput" Width="300" HorizontalAlignment="Left" />
+            </StackPanel>
+
+            <Button Name="loginButton" Content="login" Click="loginButton_click" HorizontalAlignment="Stretch" VerticalAlignment="Center" Background="#7F000000" Foreground="White" />
+            <Button Name="signUpButton" Content="sign-up" Click="signUpButton_click" HorizontalAlignment="Stretch" VerticalAlignment="Center" Background="#19000000"/>
+
+
 
         </StackPanel>
     </Grid>

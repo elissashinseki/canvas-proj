@@ -39,7 +39,8 @@ namespace CanvasPractice
             searchBox.Visibility = Visibility.Collapsed;
             goButton.Visibility = Visibility.Collapsed;
             backButton.Visibility = Visibility.Collapsed;
-
+            hideBrowser.Visibility = Visibility.Visible;
+            webViewSeparator.Visibility = Visibility.Visible;
         }
 
         private void redButton_Click(object sender, RoutedEventArgs e)
@@ -176,7 +177,7 @@ namespace CanvasPractice
                         await inkCanvas.InkPresenter.StrokeContainer.LoadAsync(stream);
                     }
                     catch(Exception ex)
-                    {
+        {
                         // Figure out how to notify user of failure
                     }
                 }
@@ -216,7 +217,20 @@ namespace CanvasPractice
                 page.canvasBorder.SetValue(Grid.ColumnProperty, 3);
                 page.canvasBorder.SetValue(Grid.ColumnSpanProperty, 1);
 
+                hideBrowser.Visibility = Visibility.Visible;
+                webViewSeparator.Visibility = Visibility.Visible;
+
             }
+            else
+            {
+                page.inkCanvas.SetValue(Grid.ColumnProperty, 0);
+                page.inkCanvas.SetValue(Grid.ColumnSpanProperty, 4);
+
+                hideBrowser.Visibility = Visibility.Visible;
+                webViewSeparator.Visibility = Visibility.Visible;
+            }
+
+            
         }
 
         //FIRST

@@ -8,13 +8,13 @@
     mc:Ignorable="d"
     SizeChanged="update_size">
 
-
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="18*"></RowDefinition>
         </Grid.RowDefinitions>
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" MinWidth="65"/>
             <ColumnDefinition Width="10*"/>
@@ -23,9 +23,7 @@
         </Grid.ColumnDefinitions>
 
         <WebView x:Name="webView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="http://www.theverge.com" Grid.Row="1" Grid.ColumnSpan="3"/>
-
         <Border x:Name="canvasBorder" BorderBrush="Gray" BorderThickness="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" Grid.RowSpan="2"></Border>
-
         <TextBox x:Name="searchBox" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="URL" VerticalAlignment="Center" Grid.ColumnSpan="1" Grid.Row="0" Grid.Column="1" FontSize="18.667" Padding="20,10,6,10" />
         <Button x:Name="goButton" Content="go" BorderThickness="2" BorderBrush="Gray" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Grid.ColumnSpan="1" Margin="0" MinWidth="65" MinHeight="50" />
         <Button x:Name="backButton" Content="back" BorderThickness="2" BorderBrush="Gray" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Grid.ColumnSpan="1" Margin="0" MinWidth="65" MinHeight="50" />
@@ -36,6 +34,7 @@
     <!--Command Bar-->
     <Page.BottomAppBar>
         <CommandBar x:Name="commandBar" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="auto">
+
             <CommandBar.Content>
                 <Grid/>
             </CommandBar.Content>
@@ -90,7 +89,7 @@
             </AppBarButton>
 
         </CommandBar>
-        <!--Command Bar-->
     </Page.BottomAppBar>
-
+    <!--Command Bar-->
+    
 </Page>
