@@ -39,8 +39,6 @@ namespace CanvasPractice
             searchBox.Visibility = Visibility.Collapsed;
             goButton.Visibility = Visibility.Collapsed;
             backButton.Visibility = Visibility.Collapsed;
-            hideBrowser.Visibility = Visibility.Visible;
-            webViewSeparator.Visibility = Visibility.Visible;
 
         }
 
@@ -128,6 +126,9 @@ namespace CanvasPractice
         //https://msdn.microsoft.com/en-us/library/windows/apps/windows.ui.xaml.controls.inkcanvas.aspx
         // https://social.msdn.microsoft.com/Forums/en-US/55bd1f52-78df-45b2-b5cc-5cb6fcfc6ea9/uwp-universal-window-app-run-on-windows-10-inkcanvas-strokes-save-to-jpg-file?forum=wpdevelop
 
+        /*
+            Saves strokes as a GIF file
+        */
         // https://github.com/Microsoft/Windows-universal-samples/blob/93bdfb92b3da76f2e49c959807fc5643bf0940c9/Samples/SimpleInk/cs/Scenario1.xaml.cs
         async void saveButton_Click(object sender, RoutedEventArgs e)
         {
@@ -150,40 +151,36 @@ namespace CanvasPractice
                     }
                     catch(Exception ex)
                     {
-                        // Figure out how to notify the user of save
+                        // Figure out how to notify the user of failure
                     }
                 }
-
             }
-
         }
 
-        //private String getFileName()
-        //{
-        //Form testDialog = new Form;
 
-        //return getFileName;
-
-        // GET FILENAME
-        //String inkFileName = "drawings";
-        //var fileStream = new FileStream(inkFileName, FileMode.Create);
-        //var strokes = _inkPresenter.StrokeContainer.GetStrokes();
-        //var outputStream = new FileStream("c:\\data\\output-text.txt");
-        //_inkPresenter.StrokeContainer.SaveAsync(outputStream);
-
-            //_inkCanvas.Strokes.Save(fileStream);
-
-      
-            //(inkFileName)
-           
-                // String newFileName = "newDrawing";
-           // var fs = new FileStream(newFileName, FileMode.Create);
-        //}
-
-
-        private void loadButton_Click(object sender, RoutedEventArgs e)
+        async void loadButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            var open = new Windows.Storage.Pickers.FileOpenPicker();
+            open.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.PicturesLibrary;
+            open.FileTypeFilter.Add(".gif");
+            open.FileTypeFilter.Add(".isf");
+
+            Windows.Storage.StorageFile file = await open.PickSingleFileAsync();
+
+            if (null != file)
+            {
+                using (var stream = await file.OpenSequentialReadAsync())
+                {
+                    try
+                    {
+                        await inkCanvas.InkPresenter.StrokeContainer.LoadAsync(stream);
+                    }
+                    catch(Exception ex)
+                    {
+                        // Figure out how to notify user of failure
+                    }
+                }
+            }
         }
 
         public void update_size(object sender, RoutedEventArgs e)
@@ -192,6 +189,8 @@ namespace CanvasPractice
 
             if (page.ActualWidth < 800) //SECOND
             {
+          
+
                 page.webView.Visibility = Visibility.Collapsed;
                 page.searchBox.Visibility = Visibility.Collapsed;
                 page.goButton.Visibility = Visibility.Collapsed;
@@ -202,9 +201,6 @@ namespace CanvasPractice
 
                 page.canvasBorder.SetValue(Grid.ColumnProperty, 0);
                 page.canvasBorder.SetValue(Grid.ColumnSpanProperty, 4);
-
-                hideBrowser.Visibility = Visibility.Collapsed;
-                webViewSeparator.Visibility = Visibility.Collapsed;
             }
 
             else if (_isShown == true) // FIRST
@@ -220,20 +216,7 @@ namespace CanvasPractice
                 page.canvasBorder.SetValue(Grid.ColumnProperty, 3);
                 page.canvasBorder.SetValue(Grid.ColumnSpanProperty, 1);
 
-                hideBrowser.Visibility = Visibility.Visible;
-                webViewSeparator.Visibility = Visibility.Visible;
-
             }
-            else
-            {
-                page.inkCanvas.SetValue(Grid.ColumnProperty, 0);
-                page.inkCanvas.SetValue(Grid.ColumnSpanProperty, 4);
-
-                hideBrowser.Visibility = Visibility.Visible;
-                webViewSeparator.Visibility = Visibility.Visible;
-            }
-
-            
         }
 
         //FIRST
@@ -244,12 +227,6 @@ namespace CanvasPractice
             searchBox.Visibility = Visibility.Collapsed;
             goButton.Visibility = Visibility.Collapsed;
             backButton.Visibility = Visibility.Collapsed;
-
-            inkCanvas.SetValue(Grid.ColumnProperty, 0);
-            inkCanvas.SetValue(Grid.ColumnSpanProperty, 4);
-
-            canvasBorder.SetValue(Grid.ColumnProperty, 0);
-            canvasBorder.SetValue(Grid.ColumnSpanProperty, 4);
 
 
             _isShown = false;
@@ -263,12 +240,6 @@ namespace CanvasPractice
             searchBox.Visibility = Visibility.Visible;
             goButton.Visibility = Visibility.Visible;
             backButton.Visibility = Visibility.Visible;
-
-            inkCanvas.SetValue(Grid.ColumnProperty, 3);
-            inkCanvas.SetValue(Grid.ColumnSpanProperty, 1);
-
-            canvasBorder.SetValue(Grid.ColumnProperty, 3);
-            canvasBorder.SetValue(Grid.ColumnSpanProperty, 1);
 
             _isShown = true;
         }
