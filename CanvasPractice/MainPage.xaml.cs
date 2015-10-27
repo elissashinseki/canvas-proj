@@ -32,6 +32,12 @@ namespace CanvasPractice
             _inkPresenter = inkCanvas.InkPresenter;
             _inkPresenter.InputDeviceTypes = Windows.UI.Core.CoreInputDeviceTypes.Mouse | Windows.UI.Core.CoreInputDeviceTypes.Pen;
             _inkDrawingAttributes = new InkDrawingAttributes();
+
+            webView.Visibility = Visibility.Collapsed;
+            searchBox.Visibility = Visibility.Collapsed;
+            goButton.Visibility = Visibility.Collapsed;
+            backButton.Visibility = Visibility.Collapsed;
+
         }
 
         private void redButton_Click(object sender, RoutedEventArgs e)
@@ -147,45 +153,69 @@ namespace CanvasPractice
         {
             MainPage page = (MainPage)sender;
 
-            if (page.ActualWidth < 800)
+            if (page.ActualWidth < 800) //SECOND
             {
-                page.webview.Visibility = Visibility.Collapsed;
+          
+
+                page.webView.Visibility = Visibility.Collapsed;
                 page.searchBox.Visibility = Visibility.Collapsed;
                 page.goButton.Visibility = Visibility.Collapsed;
+                page.backButton.Visibility = Visibility.Collapsed;
 
                 page.inkCanvas.SetValue(Grid.ColumnProperty, 0);
-                page.inkCanvas.SetValue(Grid.ColumnSpanProperty, 3);
+                page.inkCanvas.SetValue(Grid.ColumnSpanProperty, 4);
 
                 page.canvasBorder.SetValue(Grid.ColumnProperty, 0);
-                page.canvasBorder.SetValue(Grid.ColumnSpanProperty, 3);
-
-                page.commandBar.SetValue(Grid.ColumnProperty, 0);
-                page.canvasBorder.SetValue(Grid.ColumnSpanProperty, 3);
-                commandBar.Width = page.ActualWidth;
-
+                page.canvasBorder.SetValue(Grid.ColumnSpanProperty, 4);
             }
 
-            else
+            else if (_isShown == true) // FIRST
             {
-                page.webview.Visibility = Visibility.Visible;
+                page.webView.Visibility = Visibility.Visible;
                 page.searchBox.Visibility = Visibility.Visible;
                 page.goButton.Visibility = Visibility.Visible;
+                page.backButton.Visibility = Visibility.Visible;
 
-                page.inkCanvas.SetValue(Grid.ColumnProperty, 2);
+                page.inkCanvas.SetValue(Grid.ColumnProperty, 3);
                 page.inkCanvas.SetValue(Grid.ColumnSpanProperty, 1);
 
-                page.canvasBorder.SetValue(Grid.ColumnProperty, 2);
+                page.canvasBorder.SetValue(Grid.ColumnProperty, 3);
                 page.canvasBorder.SetValue(Grid.ColumnSpanProperty, 1);
 
-                page.commandBar.SetValue(Grid.ColumnProperty, 2);
-                page.canvasBorder.SetValue(Grid.ColumnSpanProperty, 1);
             }
+        }
+
+        //FIRST
+        private void hideBrowser_Unchecked(object sender, RoutedEventArgs e)
+
+        {
+            webView.Visibility = Visibility.Collapsed;
+            searchBox.Visibility = Visibility.Collapsed;
+            goButton.Visibility = Visibility.Collapsed;
+            backButton.Visibility = Visibility.Collapsed;
+
+
+            _isShown = false;
+        }
+
+        //SECOND
+        private void hideBrowser_Checked(object sender, RoutedEventArgs e)
+
+        {
+            webView.Visibility = Visibility.Visible;
+            searchBox.Visibility = Visibility.Visible;
+            goButton.Visibility = Visibility.Visible;
+            backButton.Visibility = Visibility.Visible;
+
+            _isShown = true;
         }
 
         // private variables
         private InkCanvas _inkCanvas;
         private InkDrawingAttributes _inkDrawingAttributes;
         private InkPresenter _inkPresenter;
+        private Boolean _isShown;
+
     }
 }
 
