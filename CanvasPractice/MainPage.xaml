@@ -19,16 +19,16 @@
             <ColumnDefinition Width="1*" MinWidth="65"/>
             <ColumnDefinition Width="10*"/>
             <ColumnDefinition Width="1*"  MinWidth="65"/>
-            <ColumnDefinition Width="11*"/>
+            <ColumnDefinition Width="11.5*"/>
         </Grid.ColumnDefinitions>
 
         <WebView x:Name="webView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="http://www.theverge.com" Grid.Row="1" Grid.ColumnSpan="3"/>
 
-        <Border x:Name="canvasBorder" BorderBrush="Gray" BorderThickness="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="2"></Border>
+        <Border x:Name="canvasBorder" BorderBrush="Gray" BorderThickness="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" Grid.RowSpan="2"></Border>
 
         <TextBox x:Name="searchBox" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="URL" VerticalAlignment="Center" Grid.ColumnSpan="1" Grid.Row="0" Grid.Column="1" FontSize="18.667" Padding="20,10,6,10" />
-        <Button x:Name="goButton" Content="go" BorderThickness="2" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Grid.ColumnSpan="1" Margin="0" MinWidth="65" MinHeight="50" />
-        <Button x:Name="backButton" Content="back" BorderThickness="2" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Grid.ColumnSpan="1" Margin="0" MinWidth="65" MinHeight="50" />
+        <Button x:Name="goButton" Content="go" BorderThickness="2" BorderBrush="Gray" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Grid.ColumnSpan="1" Margin="0" MinWidth="65" MinHeight="50" />
+        <Button x:Name="backButton" Content="back" BorderThickness="2" BorderBrush="Gray" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Grid.ColumnSpan="1" Margin="0" MinWidth="65" MinHeight="50" />
         <InkCanvas x:Name="inkCanvas" Grid.Column="3" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.RowSpan="2" Margin="0.167,0,0,0"/>
 
     </Grid>
@@ -42,20 +42,15 @@
 
             <AppBarToggleButton x:Name="hideBrowser" Label="Browser" Icon="Globe" Checked="hideBrowser_Checked" Unchecked="hideBrowser_Unchecked"/>
 
+            <AppBarSeparator x:Name="webViewSeparator"></AppBarSeparator>
+
             <AppBarButton x:Name="loadFile" Label="Load" Icon="OpenFile" Click="loadButton_Click"/>
 
             <AppBarButton x:Name="saveAll" Label="Save" Icon="Save" Click="saveButton_Click"/>
 
-            <AppBarButton x:Name="clearAll" Label="Clear" Icon="Clear" Click="clearButton_Click"/>
+            <AppBarSeparator></AppBarSeparator>
 
-            <AppBarButton x:Name="drawToggleFlyout" Icon="Edit" Label="Mode">
-                <AppBarButton.Flyout>
-                    <MenuFlyout>
-                        <MenuFlyoutItem Background="WhiteSmoke" Text="Draw" Foreground="Black" Tapped="drawButton_Click"/>
-                        <MenuFlyoutItem Background="WhiteSmoke" Text="Erase" Foreground="Black" Tapped="eraseButton_Click"/>
-                    </MenuFlyout>
-                </AppBarButton.Flyout>
-            </AppBarButton>
+            <AppBarButton x:Name="clearAll" Label="Clear" Icon="Clear" Click="clearButton_Click"/>
 
             <AppBarButton x:Name="colorflyout" Label="Color" Icon="Highlight">
                 <AppBarButton.Flyout>
@@ -84,6 +79,16 @@
                     </MenuFlyout>
                 </AppBarButton.Flyout>
             </AppBarButton>
+
+            <AppBarButton x:Name="drawToggleFlyout" Icon="Edit" Label="Mode">
+                <AppBarButton.Flyout>
+                    <MenuFlyout>
+                        <MenuFlyoutItem Background="WhiteSmoke" Text="Draw" Foreground="Black" Tapped="drawButton_Click"/>
+                        <MenuFlyoutItem Background="WhiteSmoke" Text="Erase" Foreground="Black" Tapped="eraseButton_Click"/>
+                    </MenuFlyout>
+                </AppBarButton.Flyout>
+            </AppBarButton>
+
         </CommandBar>
         <!--Command Bar-->
     </Page.BottomAppBar>
