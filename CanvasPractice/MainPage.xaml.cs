@@ -39,7 +39,6 @@ namespace CanvasPractice
             backButton.Visibility = Visibility.Collapsed;
             hideBrowser.Visibility = Visibility.Visible;
             webViewSeparator.Visibility = Visibility.Visible;
-
         }
 
         private void redButton_Click(object sender, RoutedEventArgs e)
@@ -189,7 +188,8 @@ namespace CanvasPractice
                 webViewSeparator.Visibility = Visibility.Visible;
 
             }
-            else
+
+            else // LAST
             {
                 page.inkCanvas.SetValue(Grid.ColumnProperty, 0);
                 page.inkCanvas.SetValue(Grid.ColumnSpanProperty, 4);
@@ -198,7 +198,6 @@ namespace CanvasPractice
                 webViewSeparator.Visibility = Visibility.Visible;
             }
 
-            
         }
 
         //FIRST
