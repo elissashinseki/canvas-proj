@@ -40,6 +40,7 @@
             </CommandBar.Content>
 
             <AppBarToggleButton x:Name="hideBrowser" Label="Browser" Icon="Globe" Checked="hideBrowser_Checked" Unchecked="hideBrowser_Unchecked"/>
+            <AppBarButton x:Name="userNameButton" Label= "NAME"/> <!--MING's USERNAME BUTTON-->
 
             <AppBarSeparator x:Name="webViewSeparator"></AppBarSeparator>
 

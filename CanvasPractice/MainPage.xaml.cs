@@ -15,8 +15,6 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Popups;
-using Windows.Storage.Streams;
-using Windows.Storage;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -39,8 +37,7 @@ namespace CanvasPractice
             searchBox.Visibility = Visibility.Collapsed;
             goButton.Visibility = Visibility.Collapsed;
             backButton.Visibility = Visibility.Collapsed;
-            hideBrowser.Visibility = Visibility.Visible;
-            webViewSeparator.Visibility = Visibility.Visible;
+            
         }
 
         private void redButton_Click(object sender, RoutedEventArgs e)
@@ -124,7 +121,7 @@ namespace CanvasPractice
         }
 
         //http://stackoverflow.com/questions/6246009/inkcanvas-load-save-operations
-        //https://msdn.microsoft.com/en-us/library/windows/apps/windows.ui.xaml.controls.inkcanvas.aspx
+        //https://msdn.microsoft.com/en-us/library/system.windows.controls.inkcanvas(v=vs.110).aspx
         // https://social.msdn.microsoft.com/Forums/en-US/55bd1f52-78df-45b2-b5cc-5cb6fcfc6ea9/uwp-universal-window-app-run-on-windows-10-inkcanvas-strokes-save-to-jpg-file?forum=wpdevelop
 
         /*
@@ -133,31 +130,20 @@ namespace CanvasPractice
         // https://github.com/Microsoft/Windows-universal-samples/blob/93bdfb92b3da76f2e49c959807fc5643bf0940c9/Samples/SimpleInk/cs/Scenario1.xaml.cs
         async void saveButton_Click(object sender, RoutedEventArgs e)
         {
-            if (_inkPresenter.StrokeContainer.GetStrokes().Count > 0)
-            {
-                var save = new Windows.Storage.Pickers.FileSavePicker();
-                save.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.PicturesLibrary;
-                save.FileTypeChoices.Add("Gif with embedded ISF", new System.Collections.Generic.List<String> { ".gif" });
+            // GET FILENAME
+            String inkFileName = "drawings";
+            var fileStream = new FileStream(inkFileName, FileMode.Create);
+            //_inkCanvas.Strokes.Save(fileStream);
 
-                Windows.Storage.StorageFile file = await save.PickSaveFileAsync();
+            //(inkFileName)
 
-                if (null != file)
-                {
-                    try
-                    {
-                        using (IRandomAccessStream stream = await file.OpenAsync(FileAccessMode.ReadWrite))
-                        {
-                            await inkCanvas.InkPresenter.StrokeContainer.SaveAsync(stream);
+                // String newFileName = "newDrawing";
+           // var fs = new FileStream(newFileName, FileMode.Create);
                         }
-                    }
-                    catch(Exception ex)
-                    {
-                        // Figure out how to notify the user of failure
-                    }
-                }
-            }
-        }
 
+        //private String getFileName()
+        //{
+            //Form testDialog = new Form;
 
         async void loadButton_Click(object sender, RoutedEventArgs e)
         {
@@ -258,11 +244,30 @@ namespace CanvasPractice
             _isShown = true;
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e) // take passed on data
+        {
+            var dataPasser = e.Parameter as passData;
+
+            if (dataPasser != null)
+            {
+                _currerntUserName = dataPasser.username;
+               
+                    userNameButton.Content = _currerntUserName;
+            }
+            else
+            {
+                _currerntUserName = "Fail";
+            }
+
+
+        }
+
         // private variables
         private InkCanvas _inkCanvas;
         private InkDrawingAttributes _inkDrawingAttributes;
         private InkPresenter _inkPresenter;
         private Boolean _isShown;
+        private string _currerntUserName;
 
     }
 }
