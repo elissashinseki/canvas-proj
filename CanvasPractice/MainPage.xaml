@@ -14,33 +14,62 @@
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="18*"></RowDefinition>
         </Grid.RowDefinitions>
-        
+
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*" MinWidth="65"/>
-            <ColumnDefinition Width="10*"/>
-            <ColumnDefinition Width="1*"  MinWidth="65"/>
+            <ColumnDefinition MinWidth="65" MaxWidth="65"/>
+            <ColumnDefinition MinWidth="65" MaxWidth="65"/>
+            <ColumnDefinition Width="9*"/>
+            <ColumnDefinition MinWidth="65" MaxWidth="65"/>
             <ColumnDefinition Width="11.5*"/>
         </Grid.ColumnDefinitions>
 
-        <WebView x:Name="webView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="http://www.theverge.com" Grid.Row="1" Grid.ColumnSpan="3"/>
-        <Border x:Name="canvasBorder" BorderBrush="Gray" BorderThickness="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" Grid.RowSpan="2"></Border>
-        <TextBox x:Name="searchBox" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="URL" VerticalAlignment="Center" Grid.ColumnSpan="1" Grid.Row="0" Grid.Column="1" FontSize="18.667" Padding="20,10,6,10" />
-        <Button x:Name="goButton" Content="go" BorderThickness="2" BorderBrush="Gray" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Grid.ColumnSpan="1" Margin="0" MinWidth="65" MinHeight="50" />
-        <Button x:Name="backButton" Content="back" BorderThickness="2" BorderBrush="Gray" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Grid.ColumnSpan="1" Margin="0" MinWidth="65" MinHeight="50" />
-        <InkCanvas x:Name="inkCanvas" Grid.Column="3" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.RowSpan="2" Margin="0.167,0,0,0"/>
+        <ToggleButton x:Name="paneExtention" Canvas.ZIndex="2" Content="pane" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Checked="paneExtention_Checked" Unchecked="paneExtention_Unchecked">
+            <ToggleButton.Foreground>
+                <ImageBrush Stretch="Fill" ImageSource="Assets/Stroke Thickness Broken.png"/>
+            </ToggleButton.Foreground>
+            <ToggleButton.Background>
+                <ImageBrush Stretch="Fill"/>
+            </ToggleButton.Background>
+        </ToggleButton>
+
+        <SplitView x:Name="splitView" Canvas.ZIndex="1" Grid.Column="0" Grid.ColumnSpan="5" Grid.RowSpan="2" DisplayMode="Overlay" Margin="10,1,688,-1">
+            <SplitView.Pane>
+                <StackPanel Margin="0,100,0,0">
+
+                    <Button x:Name="userNameButton" Content= "NAME"/>
+                    <!--MING's USERNAME BUTTON-->
+
+                </StackPanel>
+            </SplitView.Pane>
+        </SplitView>
+
+        <ToggleButton  Canvas.ZIndex="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Checked="paneExtention_Checked" Unchecked="paneExtention_Unchecked">
+            <ToggleButton.Background>
+                <ImageBrush Stretch="Fill" ImageSource="Assets/Square44x44Logo.png"/>
+            </ToggleButton.Background>
+
+        </ToggleButton>
+
+        <TextBox x:Name="searchBox" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="URL" VerticalAlignment="Center" Grid.ColumnSpan="1" Grid.Row="0" Grid.Column="2" FontSize="18.667" Padding="20,10,6,10" />
+        <Button x:Name="goButton" Content="go" Grid.Column="3" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Grid.ColumnSpan="1" Margin="0" MinWidth="65" MinHeight="50" />
+        <Button x:Name="backButton" Content="back" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Grid.ColumnSpan="1" Margin="0" MinWidth="65" MinHeight="50" />
+
+        <WebView x:Name="webView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="http://www.theverge.com" Grid.ColumnSpan="3" Grid.Row="1" Grid.Column="1"/>
+
+        <InkCanvas x:Name="inkCanvas" Grid.Column="4" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.RowSpan="2"/>
+
 
     </Grid>
 
     <!--Command Bar-->
     <Page.BottomAppBar>
-        <CommandBar x:Name="commandBar" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="auto">
+        <CommandBar x:Name="commandBar" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="auto" Background="#FF272727" Foreground="White" RequestedTheme="Dark">
 
             <CommandBar.Content>
                 <Grid/>
             </CommandBar.Content>
 
             <AppBarToggleButton x:Name="hideBrowser" Label="Browser" Icon="Globe" Checked="hideBrowser_Checked" Unchecked="hideBrowser_Unchecked"/>
-            <AppBarButton x:Name="userNameButton" Label= "NAME"/> <!--MING's USERNAME BUTTON-->
 
             <AppBarSeparator x:Name="webViewSeparator"></AppBarSeparator>
 
@@ -92,5 +121,5 @@
         </CommandBar>
     </Page.BottomAppBar>
     <!--Command Bar-->
-    
+
 </Page>
