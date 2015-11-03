@@ -209,6 +209,10 @@ namespace CanvasPractice
                 page.inkCanvas.SetValue(Grid.ColumnProperty, 1);
                 page.inkCanvas.SetValue(Grid.ColumnSpanProperty, 4);
 
+
+                hideBrowser.Visibility = Visibility.Collapsed;
+                webViewSeparator.Visibility = Visibility.Collapsed;
+
             }
 
             else if (_isShown == true) // FIRST
