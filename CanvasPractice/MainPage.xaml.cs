@@ -153,12 +153,11 @@ namespace CanvasPractice
                     }
                     catch (Exception ex)
                     {
-                        // Figure out how to notify the user of failure
+                        // Figure out how to notify the user of failure  
                     }
                 }
             }
         }
-
 
 
         async void loadButton_Click(object sender, RoutedEventArgs e)
@@ -174,14 +173,14 @@ namespace CanvasPractice
             {
                 using (var stream = await file.OpenSequentialReadAsync())
                 {
-                    //try
-                    //{
-                    //    await inkCanvas.InkPresenter.StrokeContainer.LoadAsync(stream);
-                    //}
-                    //catch (Exception ex)
-                    //{
-                    //    // Figure out how to notify user of failure
-                    //}
+                    try
+                    {
+                        await inkCanvas.InkPresenter.StrokeContainer.LoadAsync(stream);
+                    }
+                    catch (Exception ex)
+                    {
+                        // Figure out how to notify user of failure
+                    }
                 }
             }
         }
